@@ -1,0 +1,11 @@
+{
+    "carts": [
+        {
+            "session": 1,
+            "cart-content": {
+                "name": "Hamburger",
+                "quantity": 3
+            }
+        }
+    ]
+}

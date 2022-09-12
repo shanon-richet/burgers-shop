@@ -1,0 +1,122 @@
+{
+    "burgers": [
+        {
+            "name": "Hamburger",
+            "category": "burgers",
+            "ingredients": "beef burger, cheddar, tomato, salad, onion",
+            "img": "img/burgers/burger1.png",
+            "price": 7
+        },
+        {
+            "name": "Double Hamburger",
+            "category": "burgers",
+            "ingredients": "2 beef burgers, 2 slice of cheddar, tomato, salad, onion",
+            "img": "img/burgers/burger2.png",
+            "price": 10
+        },
+        {
+            "name": "Chicken Burger",
+            "category": "burgers",
+            "ingredients": "chicken burger, tomato, salad, onion",
+            "img": "img/burgers/burger3.png",
+            "price": 7
+        },
+        {
+            "name": "Double Chicken",
+            "category": "burgers",
+            "ingredients": "2 chicken burger, 2 slice of cheddar, tomato, salad, onion",
+            "img": "img/burgers/burger4.png",
+            "price": 10
+        },
+        {
+            "name": "Fish Burger",
+            "category": "burgers",
+            "ingredients": "fish burger, cheddar, tomato, salad, onion",
+            "img": "img/burgers/burger5.png",
+            "price": 6
+        }
+    ],
+    "snacks": [
+        {
+            "name": "Fries",
+            "category": "snacks",
+            "ingredients": "potatoes",
+            "img": "img/snacks/fries.png",
+            "price": 5
+        }, 
+        {
+            "name": "Nuggets",
+            "category": "snacks",
+            "ingredients": "chicken",
+            "img": "img/snacks/nuggets.png",
+            "price": 6
+        },
+        {
+            "name": "Onions Rings",
+            "category": "snacks",
+            "ingredients": "onions",
+            "img": "img/snacks/onions-rings.png",
+            "price": 6
+        }
+    ],
+    "dessers": [
+        {
+            "name": "Brownie",
+            "category": "desserts",
+            "ingredients": "chocolat cake, chocolat fudge",
+            "img": "img/desserts/dessert1.png",
+            "price": 5
+        },
+        {
+            "name": "Muffin",
+            "category": "desserts",
+            "ingredients": "plain cake, chocolate chip",
+            "img": "img/desserts/dessert2.png",
+            "price": 5
+        },
+        {
+            "name": "Tiramisu",
+            "category": "desserts",
+            "ingredients": "biscuit, cream, cacao",
+            "img": "img/desserts/dessert3.png",
+            "price": 5
+        }
+    ],
+    "drinks": [
+        {
+            "name": "Coca",
+            "category": "drinks",
+            "ingrediens": "sparkling water, cafeine, sugar",
+            "img": "img/drinks/coca.png",
+            "price": 2.5
+        },
+        {
+            "name": "Coca Zero",
+            "category": "drinks",
+            "ingrediens": "sparkling water, cafeine",
+            "img": "img/drinks/coca-zero.png",
+            "price": 2.5
+        },
+        {
+            "name": "Fanta",
+            "category": "drinks",
+            "ingrediens": "sparkling orangeade, sugar",
+            "img": "img/drinks/fanta.png",
+            "price": 2.5
+        },
+        {
+            "name": "Fanta Zero",
+            "category": "drinks",
+            "ingrediens": "sparkling orangeade",
+            "img": "img/drinks/fanta-zero.png",
+            "price": 2.5
+        },
+        {
+            "name": "Lipton",
+            "category": "drinks",
+            "ingrediens": "tea, peach",
+            "img": "img/drinks/lipton.png",
+            "price": 2.5
+        }
+    ]
+}
