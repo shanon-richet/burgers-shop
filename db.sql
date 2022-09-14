@@ -20,7 +20,6 @@ VALUES
 ('Brownies', 'desserts', 5, 'img/desserts/dessert1.png', 'cake au chocolat, ganache au chocolat'),
 ('Muffin', 'desserts', 5, 'img/desserts/dessert2.png', 'cake nature, pépite de chocolat'),
 ('Tiramisu', 'desserts', 5, 'img/desserts/dessert3.png', 'biscuits, crème, cacao');
-;
 CREATE TABLE additionnal(
     id SERIAL PRIMARY KEY,
     nom TEXT NOT NULL,
@@ -52,12 +51,15 @@ CREATE table card(
     id SERIAL PRIMARY KEY
 );
 
-create TABLE card_content(
-    card_id INT NOT NULL,
-    produit_id INT NOT NULL,
+create TABLE basket(
+    card_id TEXT NOT NULL,
+    id_produit INT NOT NULL,
     quantity INT NOT NULL,
     sauce TEXT
-)
+);
+insert into basket(card_id, id_produit, quantity, sauce) 
+VALUES (1, 1, 2, 'ketchup');
 
+ALTER TABLE basket ADD FOREIGN KEY (id_produit) REFERENCES produits(id);
 
-
+select nom, prix, img, quantity from basket INNER JOIN produits ON produits.id = id_produit WHERE id_produit = 1;

@@ -4,33 +4,56 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viZewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300&family=Mulish:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300&family=Bubblegum+Sans&display=swap" rel="stylesheet">
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <title>Burger</title>
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
     <header>
-        <img id="burger" src="img/buck.png">
+        <img id="led" src="img/MwA8.gif">
         <nav id="nav-header">
             <li>Home</li>
             <li>About</li>
             <li>Menu</li>
+            <li>Blog</li>
             <li>Contact</li>
-            <li><i id="shopping-cart" class="fa fa-shopping-cart"></i></li>
+            <li><i id="shopping-cart" class='fas fa-hamburger'></i></li>
         </nav>
+        <img id="burger" src="img/buck.png">
 
         <section id="cart-content">
-            <button id="close">X</button>
+            <div id="close">X</div>
+            <my-basket></my-basket>
+        </section>
+
+        <section id="section-payment">
+            <form-payment></form-payment>
         </section>
     </header>
     <main>
+        <section id="about">
+            <!-- <img src="img/pablo-merchan-montes-hyIE90CN6b0-unsplash.jpg"> -->
+            <p>Nous servons nos délicieux burgers à base de produits frais de saison provenant de producteurs régionaux ainsi que certains produits locaux tels que du poisson et des morceaux de poulet entier. Vous pouvez déguster de délicieuses
+                frites faites maison. Tous les plats sont préparés selon les recettes de notre maître restaurateur.  Notre menu se compose de plats bien planifiés et bien exécutés, qui sont créés sur place à la perfection. Nous sommes
+                passionnés par la nourriture et les mets de qualités.<br>
+                
+                Il est possible de manger sur place ou à emporter. Nous disposons d'une agréable terrasse.
+            </p>
+        </section>
+        <section id="menu">
+            <menu-content></menu-content>
+            <div id="choice">
+                <button id="close-choice">X</button>
+                <form-menu></form-menu>
+            </div>
+        </section>
         <section id="text">
-            <button id="left"><div></div></button>
-            <article id="cher">
+            <button id="left"><div>←</div></button>
+            <button id="right"><div>→</div></button>
+            <article id="cher" class="slides">
                 <img src="img/intro/img.jpg">
                 <p>
                     À Voorthuizen, aux Pays-Bas, Robbert Jan de Veen, chef du restaurant De Daltons, a décidé de marquer son nom au livre Guiness des records. Selon les informations de 7sur7, Robbert propose le burger le plus cher du monde. Si les clients veulent le déguster, ils devront débourser... 5.000 euros ! Mais ce n’est pas tout, ils devront également payer un acompte de 750 euros.
@@ -39,9 +62,9 @@
                     L'article est disponible sur ce <a href="https://fr.metrotime.be/insolite/ce-hamburger-le-plus-cher-du-monde-coute-5000eu">lien</a>
                 </p>
             </article>
-            <article id="big">
+            <article id="big" class="slides">
                 <p>
-                    SYDNEY (Reuters) - Un bar australien a revendiqué le record du plus gros hamburger du monde, après avoir passé douze heures à faire cuire un steak haché de 81 kg, que quatre personnes se chargeaient de retourner.
+                    Un bar australien a revendiqué le record du plus gros hamburger du monde, après avoir passé douze heures à faire cuire un steak haché de 81 kg, que quatre personnes se chargeaient de retourner.
                     Ce coupe-faim se compose également de 120 œufs, 150 tranches de fromage, 1,5 kg de betteraves, 2,5 kg de tomates et presque 2 kg de laitue, le tout assaisonné d’une sauce spéciale, entre deux pains au sésame géant. Il a été dégusté par les employés du restaurant.
                     Avec un poids total de 90 kg, le hamburger du couple de restaurateurs, Joe et Iman El Adjouz, dépasse de 6 kg le précédent record, détenu par un restaurant du Michigan.
                     “Retourner le steak était la principale difficulté, mais tout s’est bien passé. Mon mari a conçu un support spécial pour la viande, deux plaques de métal verrouillées ensemble, une de chaque côté, et ils l’ont retourné comme ça”, a expliqué Iman El Adjouz à Reuters.
@@ -51,10 +74,16 @@
                 </p>
                 <img src="img/intro/img1.jpg">
             </article>
-            <!-- Le burger le plus cher au monde a été créé par le restaurant londonien Honky Ton.
-            Ce burger hors de prix a été vendu 1 400€ et est composé d'une liste hallucinante d'ingrédients délicieux et hors de prix : boeuf de Kobé, caviar Beluga, brie à la truffe noire, chevreuil de Nouvelle-Zélande assaisonné de sel de l'Himalaya, homard canadien poché au safran, bacon au sirop d'érable, œuf de canard fumé, pain brioché à la feuille d'or, mayonnaise au matcha, sauce mangue et champagne et truffe blanche d'Alba râpée.
-            C'est à se demander comment on peut manger tout ça en un seul burger ! <br>
-            Le plus gros burger au monde pèse 913 kilos et a été réalisé en 2012 au Black Bear Casino Resort dans le Minnesota, aux Etats-Unis. <br>
+            <article id="record" class="slides">
+                <img src="img/img2.jpg">
+                <p>
+                    Le record du monde du hamburger le plus gros du monde a été battu dans le Minnesota, aux Etats-Unis. En effet, c'est le Black Bear Casino Resort qui avait organisé l'événement en prenant bien sûr le soin d'inviter un représentant du Guinness des Records afin que celui-ci soit validé, explique la version britannique de Metro.<br>
+                    Au final, c'est un sandwich de 913 kg que cette équipe a réussi à cuisiner, battant ainsi le précédent record du monde qui était de 400 kg. La plus grande difficulté de cet exercice n'était pas de réunir tous les ingrédients, mais de réussir à cuire la viande ainsi que le pain. Les cuisiniers ont donc construit un four sur mesure pour ce monstrueux hamburger. Pour retourner la viande et le pain pendant la cuisson, il leur a fallu utiliser une grue.<br>
+                    Au cours de ce gigantesque record, les organisateurs ont utilisé 27 kg de bacon, 22 kg de laitue ainsi que 18 kg de fromage et de cornichons pour fabriquer ces 4.1 millions de calories. Le juge, Philip Robertson, avant de valider ce record a dû goûter à cet hamburger démesuré. Il a même précisé que ce dernier était délicieux, bien que ce ne soit pas un critère de validation. Les spectateurs ont également pu se partager ce sandwich à la fin du spectacle.
+                    L'article est disponible sur ce <a href="https://hoopnod.com/omg-plus-gros-hamburger-monde-pese-1-tonne-record/">lien</a>
+                </p>
+            </article>
+            <!-- 
             Pour la plupart d’entre nous, manger 97 burgers relève d’un exploit qui peut durer des jours,
             des semaines voire des mois. Mais pour Takeru Kobayashi, il faut 8 minutes, ni plus ni
             moins. Ce japonais est surnommé “ Tsunami “, car il est le plus gros mangeur du monde de
@@ -62,32 +91,7 @@
             cervelle de bœuf et hamburgers. En 8 minutes, il a englouti 97 hamburgers, rien que ça.<br>
             McDonald's vend 75 burgers chaque seconde et 900 million de Big Mac dans le monde chaque année.<br>
             <br>Article is available on this <a href="https://sobusygirls.fr/2019/05/24/anecdotes-sur-les-burgers/">link</a> -->
-            <button id="right"><div></div></button>
         </section>
-        <section id="about">
-            <img src="img/pablo-merchan-montes-hyIE90CN6b0-unsplash.jpg">
-            <p>Nous servons nos délicieux burgers à base de produits frais de saison provenant de producteurs régionaux ainsi que certains produits locaux tels que du poisson et des morceaux de poulet entier. Vous pouvez déguster de délicieuses
-                frites faites maison. Tous les plats sont préparés selon les recettes de notre maître restaurateur.  Notre menu se compose de plats bien planifiés et bien exécutés, qui sont créés sur place à la perfection. Nous sommes
-                passionnés par la nourriture et les mets de qualités.<br><br>
-                
-                Il est possible de manger sur place ou à emporter. Nous disposons d'une agréable terrasse.
-            </p>
-        </section>
-        <nav id="food-nav">
-            <li>all</li>
-            <li>burgers</li>
-            <li>snacks</li>
-            <li>desserts</li>
-            <li>drinks</li>
-        </nav>
-        <section id="menu">
-            <menu-content></menu-content>
-            <div id="choice">
-                <button id="close-choice">X</button>
-                <form-menu></form-menu>
-            </div>
-        </section>
-        <section id="contacts">
             All contacts informations is in the bottom of the site. 
     </main>
     <footer>
@@ -99,6 +103,7 @@
             Tél : 064/54.52.56<br>
         </p>
         <p id="horaires">
+            HORAIRES<br>
             Lundi 10:30 - 22:30<br>
             Mardi 10:30 - 22:30<br>
             Mercredi 10:30 - 22:30<br>
@@ -115,7 +120,7 @@
             2022 par Richet Shanon
         </p>
     </footer>
-<script src="script.js"></script>
+<script src="script.js" type="module"></script>
 
 <script src="functions.js"></script>
 </body>
