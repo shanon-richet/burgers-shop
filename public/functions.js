@@ -3,9 +3,10 @@ var text = document.getElementById('text')
 var cart = document.getElementById('cart-content')
 var header = document.querySelector('header')
 var about = document.getElementById('about')
-var left = document.getElementById('left')
-var right = document.getElementById('right')
+var left = document.querySelector('#text #left')
+var right = document.querySelector('#text #right')
 
+var menu = document.getElementById('menu-items')
 var shopping = document.getElementById('shopping-cart')
 var close = document.getElementById('close')
 
@@ -40,16 +41,12 @@ li[3].onclick = () => {
     scrollTo(0, about.offsetTop - navHeader.offsetHeight)
 }
 li[5].onclick = () => {
-    scrollTo(0, navFood.offsetTop - navHeader.offsetHeight)
+    scrollTo(0, menu.offsetTop - navHeader.offsetHeight)
 }
 var slides = document.getElementsByClassName('slides')
 var index = 0
 
-right.style.top = 
 right.onclick = () => {
-    // var interval = setInterval(() => {
-
-    // })
     slides[index].style.display = "none"
     slides[index].style.visibility = "hidden"
     if (index === slides.length - 1) {
@@ -72,16 +69,48 @@ left.onclick = () => {
     slides[index].style.visibility = "visible"
 }
 
-// SCROLL
-// window.addEventListener('scroll', (event) => {
-//     let textTop = text.offsetTop
-//     let navHeight = navHeader.offsetHeight
-//     if (textTop <= 0 + navHeight) {
-//         navHeader.style.position = "fixed"
-//         navHeader.style.top = 0
-//     } 
-//     if (textTop >= 0 + navHeight) {
-//         navHeader.style.position = "static"
-//         navHeader.style.top = textTop + navHeight
+// function slideRight(slid, ind, ) {
+//     slides[index].style.display = "none"
+//     slides[index].style.visibility = "hidden"
+//     if (index === slides.length - 1) {
+//         index = 0
+//     } else {
+//         index++
 //     }
-// })
+//     slides[index].style.display = "flex"
+//     slides[index].style.visibility = "visible"
+// }
+var fig_imgs = document.querySelectorAll('figure img')
+var fig_left = document.querySelector('figure #left')
+var fig_right = document.querySelector('figure #right')
+
+var index_img = 0
+for (let i = 0; i < fig_imgs.length; i++) {
+    fig_imgs[i].style.display = "none"
+    if (index_img == i) {
+        fig_imgs[i].style.display = "block"
+    }
+}
+
+fig_right.onclick = () => {
+    fig_imgs[index].style.display = "none"
+    fig_imgs[index].style.visibility = "hidden"
+    if (index === fig_imgs.length - 1) {
+        index = 0
+    } else {
+        index++
+    }
+    fig_imgs[index].style.display = "flex"
+    fig_imgs[index].style.visibility = "visible"
+}
+fig_left.onclick = () => {
+    fig_imgs[index].style.display = "none"
+    fig_imgs[index].style.visibility = "hidden"
+    if (index === 0) {
+        index = fig_imgs.length - 1
+    } else {
+        index--
+    }
+    fig_imgs[index].style.display = "flex"
+    fig_imgs[index].style.visibility = "visible"
+}

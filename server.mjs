@@ -9,6 +9,7 @@ import dotenv from 'dotenv'
 import { fileURLToPath } from 'url'
 import productsRouter from './routes/productsRouter.mjs'
 import basketRouter from './routes/basketRouter.mjs'
+import paymentRouter from './routes/paymentRouter.mjs'
 import {v4 as uuidv4} from 'uuid'
 
 const __filename = fileURLToPath(import.meta.url)
@@ -24,8 +25,8 @@ app.use(session({
     resave: false,
     saveUninitialized: true,
     cookie: {
-        maxAge: null,
-        expires: null,
+        // maxAge: null,
+        // expires: null,
         httpOnly: true,
         secure: false
     },
@@ -40,6 +41,7 @@ app.use(cors())
 
 app.use('/api/products', productsRouter)
 app.use('/', basketRouter)
+app.use('/', paymentRouter)
 
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, 'index.html'))

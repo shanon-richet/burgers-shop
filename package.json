@@ -26,6 +26,7 @@
     "node-postgres": "^0.6.2",
     "nodemon": "^2.0.15",
     "pg": "^8.7.1",
+    "stripe": "^10.10.0",
     "uuid": "^9.0.0"
   },
   "engines": {

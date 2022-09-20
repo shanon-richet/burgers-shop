@@ -13,7 +13,6 @@
 </head>
 <body>
     <header>
-        <img id="led" src="img/MwA8.gif">
         <nav id="nav-header">
             <li>Home</li>
             <li>About</li>
@@ -22,10 +21,11 @@
             <li>Contact</li>
             <li><i id="shopping-cart" class='fas fa-hamburger'></i></li>
         </nav>
-        <img id="burger" src="img/buck.png">
-
+        <div id="burger">
+            <img src="img/buck.png">
+        </div>
         <section id="cart-content">
-            <div id="close">X</div>
+            <div id="close"><i class="fa fa-close"></i></div>
             <my-basket></my-basket>
         </section>
 
@@ -34,14 +34,21 @@
         </section>
     </header>
     <main>
-        <section id="about">
-            <!-- <img src="img/pablo-merchan-montes-hyIE90CN6b0-unsplash.jpg"> -->
-            <p>Nous servons nos délicieux burgers à base de produits frais de saison provenant de producteurs régionaux ainsi que certains produits locaux tels que du poisson et des morceaux de poulet entier. Vous pouvez déguster de délicieuses
-                frites faites maison. Tous les plats sont préparés selon les recettes de notre maître restaurateur.  Notre menu se compose de plats bien planifiés et bien exécutés, qui sont créés sur place à la perfection. Nous sommes
-                passionnés par la nourriture et les mets de qualités.<br>
-                
-                Il est possible de manger sur place ou à emporter. Nous disposons d'une agréable terrasse.
-            </p>
+        <section id="about" autoplay="autoplay" loop="true" controls muted>
+            <figure>
+                <figcaption>
+                    Nous servons nos délicieux burgers à base de produits frais de saison provenant de producteurs régionaux ainsi que certains produits locaux tels que du poisson et des morceaux de poulet entier. Vous pouvez déguster de délicieuses
+                    faites maison. Tous les plats sont préparés selon les recettes de notre maître restaurateur. Notre menu se compose de plats bien planifiés et bien exécutés, qui sont créés sur place à la perfection. Nous sommes
+                    passionnés par la nourriture et les mets de qualités. Tous nos hamburgers sont grillés au charbon. Il est possible de manger sur place ou à emporter. Nous disposons d'une agréable terrasse.
+                </figcaption>
+                <div>
+                    <button id="left"><div>←</div></button>
+                    <button id="right"><div>→</div></button>
+                    <img src="img/about/grill.jpg">
+                    <img src="img/about/2400-1800.jpg">
+                    <img src="img/about/service.jpg">
+                </div>
+            </figure>
         </section>
         <section id="menu">
             <menu-content></menu-content>
@@ -94,6 +101,7 @@
         </section>
             All contacts informations is in the bottom of the site. 
     </main>
+
     <footer>
         <p id="contact">
             CONTACTS<br>

@@ -1,3 +1,4 @@
+
 var choice = document.getElementById('choice')
 var nav = document.getElementById('food-nav')
 var close = document.getElementById('close-choice')
@@ -15,10 +16,12 @@ fetch('http://localhost:5000/api/products')
     for (const x of json) {
         var html = `
         <article id="item">
+        <img src="${x.img}">
+            <div>
             <h3><b>${x.nom}</b></h3>
-            <img src="${x.img}">
             <p>Prix : ${x.prix} $</p>
             <aside>Ingrédients : ${x.ingredients}</aside>
+            </div>
         </article>
         `
         if (x.categorie === 'burgers') {
@@ -58,18 +61,16 @@ fetch('http://localhost:5000/api/products')
         x.onclick = (e) => {
             var add_form = document.getElementById('add')
             let t = e.target.parentElement.childNodes
-            let price = t[5].textContent.match(/[0-9]+/g)
+            let price = t[3].childNodes[3].textContent.match(/[0-9]+/g)
             choice.style.display = "block"
             choice.style.top = `${window.pageYOffset + 200}px`
 
             /* HTML */
             let inner = []
             inner.push(`                        
-                <img src="${t[3].src}">
-                <form id="add-form" method="post" action="/add">
-                    <input id="add-nom" type="text" name="nom" value="${t[1].textContent}">
-                    <div><label for="quantity">Quantité :</label>
-                    <input id="moins" type="button" value="-"><input id="quantity" name="quantity" type="number" value="1"><input id="plus" type="button" value="+">
+            <form id="add-form" method="post" action="/add">
+                <img src="${t[1].src}">
+                <input id="food-name" type="text" name="nom" value="${t[3].childNodes[1].textContent}" readonly>
             `)
             if (e.target.parentElement.parentElement.getAttribute('id') !== "desserts") {
                 inner.push(`                                
@@ -83,7 +84,21 @@ fetch('http://localhost:5000/api/products')
                 </select></div>
                 `)
             }
+            if (e.target.parentElement.parentElement.getAttribute('id') === "burgers") {
+                inner.push(`                                
+                <div><label for="boisson">Boisson : </label>
+                <select id="boissons" name="boisson">
+                    <option value="none">Aucune</option>
+                    <option value="coca-cola">Coca-Cola</option>
+                    <option value="coca-zero">Coca-Cola Zero</option>
+                    <option value="fanta">Fanta</option>
+                    <option value="fanta-zero">Fanta Zero</option>
+                    <option value="ice-tea">Ice-Tea Pêche</option>
+                </select></div>
+                `)     
+            }
             inner.push(`
+                <div id="div-quantity"><input id="moins" type="button" value="-"><input id="quantity" name="quantity" value="1"><input id="plus" type="button" value="+"></div>
                     <input id="submit" type="submit" value="add ${price} $">
                 </form>
             `)
@@ -142,7 +157,7 @@ fetch('http://localhost:5000/basket')
         `)
         total += x.prix * x.quantity
     }
-    class basket extends HTMLElement {
+    class Basket extends HTMLElement {
         connectedCallback() {
             this.innerHTML= `
                 <h2>Panier</h2>
@@ -158,15 +173,25 @@ fetch('http://localhost:5000/basket')
             `
         }
     }
-    customElements.define('my-basket', basket)
+    customElements.define('my-basket', Basket)
 })
 
 class Payment extends HTMLElement {
     connectedCallback() {
         this.innerHTML= `
             <form id="form-payment" method="post" action="/pay">
-                <label for="mode">Mode de livraison</label>
 
+                <label for="infos">Informations personnelles</label> 
+                <label for="first_name">First Name :</label>
+                <input name="first_name" required> 
+                <label for="last_name">Last Name :</label>
+                <input name="last_name" required> 
+                <label for="email">Email :</label>
+                <input name="email" required>
+                <label for="phone">Phone :</label>
+                <input name="phone" required>
+            
+            <label for="mode">Mode de livraison</label>
                 <label for="emporter">
                 <input type="radio" name="radio" value="emporter">
                    A emporter
@@ -180,37 +205,30 @@ class Payment extends HTMLElement {
                    Sur place
                 </label>
 
-                <label for="first_name">First Name :</label>
-                <input name="first_name" required> 
-                <label for="last_name">Last Name :</label>
-                <input name="last_name" required> 
-
-                <label for="email">Email :</label>
-                <input name="email" required>
-                <label for="phone">Phone :</label>
-                <input name="phone" required>
-
+                <label for="">Adresse de livraison :</label>
                 <label for="rue">Rue :</label>
                 <input name="rue" required>
-                <label for="no">Numéro :</label>
+                <label for="no">Numéro de maison :</label>
                 <input name="no" required>
                 <label for="postcode">Code postal :</label>
                 <input name="postcode" required>
-                <label for="rue">Rue :</label>
+                <label for="rue">Ville :</label>
                 <input name="rue" required>
 
                 <label for="message">Message(optionnel) : </label>
                 <input name="message">
-                
-                <label for="payment">Payment method :</label>
-                <select>
-                   <option value="bancontact">Bancontact</option>
-                   <option value="cash">Cash</option>
-                   <option value="paypal">Paypal</option>
-                   <option value="creditcard">Carte de crédit</option>
-                </select>
+
+                <input type="submit" value="Paiement">
             </form>
         `
     }
 }
 customElements.define('form-payment', Payment)
+
+                // <label for="payment">Payment method :</label>
+                // <select>
+                //    <option value="bancontact">Bancontact</option>
+                //    <option value="cash">Cash</option>
+                //    <option value="paypal">Paypal</option>
+                //    <option value="creditcard">Carte de crédit</option>
+                // </select>
