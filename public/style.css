@@ -1,7 +1,8 @@
 body {
     overflow-x: hidden;
-    background-image: url('img/wood.jpg');
-    background-size: cover;
+    background: black;
+    /* background-image: url('img/wood.jpg');
+    background-size: cover; */
 }
 h1, nav, footer, footer p, main, #about, form, #text article, #form-payment, figure {
     display: flex;
@@ -12,7 +13,7 @@ h1, nav, footer, footer p, main, #about, form, #text article, #form-payment, fig
 h1, nav, footer p {
     justify-content: center;
 }
-#nav-header, #text, #burger, #text article, #about p, #menu-items h2, #submit, #choice, #form-payment {
+#nav-header, #text, #burger, #text article, #about p, #menu-items h2, #submit, #choice, #contacts, #form-payment {
     margin-left: auto;
     margin-right: auto;
 }
@@ -30,17 +31,16 @@ h1, #menu-items h2, #close-choice {
 li, #shopping-cart, #cart-content h2, #close, #left, #right, #submit{
     font-size: 80px;
 }
-table, footer {
+table, footer, #contacts input, textarea, #contacts label {
     font-size: 50px;
 }
 #about, #item div {
     font-size: 3vmin;
 }
 #add-form label, #add-form input, #add-form select{
-    font-size: 2.5vmax;
+    font-size: 40px;
 }
-
-#close-choice, #add-form input, #submit, button {
+#close-choice, #add-form div input, button {
     border: none;
 }
 #close-choice, #food-name, #quantity {
@@ -51,9 +51,19 @@ table, footer {
 #nav-header, #item, #section-payment, footer {
     width: 100%;
 }
+#about, #menu-items h2, .items, #text, #contacts {
+    width: 96%;
+}
 #item div, #submit, #div-quantity, #form-payment {
     width: 80%;
 }
+
+/* BORDER */
+#about {
+    border: 5px solid #494949;
+
+}
+
 
 #menu-items h2, #nav-header {
     font-family: 'Bubblegum Sans', cursive;
@@ -74,6 +84,7 @@ table, #add img, #text article {
     padding-block: 60px;
     background-color: #181818;
 }
+
 li {
     list-style: none;
     margin-left: 100px;
@@ -112,9 +123,6 @@ li:hover, #shopping-cart:hover {
 .hidden {
     display: none;
 }
-#about, #menu-items h2, .items, #text {
-    width: 96%;
-}
 #about, tr, #item img, #text, #form-payment label {
     margin-top: 50px;
 }
@@ -134,16 +142,23 @@ figure {
 figcaption {
     text-shadow: 4px 4px 8px #f6aa1c;
     width: 90%;
-    height: 38%;
+    height: 35%;
     opacity: 0.8;
     margin-right: auto;
     margin-left: auto;
+    overflow-y: auto;
+    background: black;
+    padding-block: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 figure div {
     display: flex;
     flex-direction: row ;
 }
 figure img {
+    margin-top: 20px;
+    margin-bottom: 20px;
     height: 40%;
     max-width: 3000px;
     position: absolute;
@@ -159,7 +174,7 @@ figure #right {
 figure button div {
     width: 100px;
     height: 100px;
-    padding-left: 50px;
+    padding: 40px;
 }
 
 
@@ -168,17 +183,20 @@ figure button div {
     width: 800px;
     height: 100%;
     position: fixed;
-    background-color: black;
+    background-color: #181818;
     right: -800px;
     top: 0px;
     color: white;
-    z-index: 11;
+    z-index: 15;
+    border: 1px solid #494949;
 }
 #close {
     width: 150px;
     height: 150px;
+    padding: 20px;
     float: right;
     opacity: 0.5;
+    color: white;
 }
 #close:hover {
     cursor: pointer;
@@ -188,15 +206,23 @@ table {
     margin-left: 40px;
 }
 td {
-    margin-left: 20px;
+    margin-left: 40px;
+    padding-top: 50px;
 }
-#td {
-    width: 100px;
+#td-nom {
+    width: 500px;
 }
-#pay {
+#command {
     font-size: 60px;
-    float: right;
-    margin-right: 100px;
+    margin-left: 50px;
+    margin-top: 50px;
+    padding-block: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background: none;
+    border: 5px solid;
+    border-image: linear-gradient(30deg, #ff6200, #ffff00) 5;
+    color: white;
 }
 
 
@@ -205,11 +231,13 @@ td {
 #menu-items h2 {
     text-shadow: 4px 4px 8px #f6aa1c;
     background-color: rgb(18, 18, 18);
+    padding-block: 50px;
+    border: 5px solid #494949;
 }
 .items {
     opacity: 0.9;
-    padding-left: 2%;
-    padding-right: 2%;
+    margin-left: auto;
+    margin-right: auto;
 }
 #item {
     background-color: #181818;
@@ -235,7 +263,7 @@ td {
 
 /* CHOICES */
 #choice {
-    border: 10px solid;
+    border: 5px solid #494949;
     width: 90%;
     height: 90%;
     background-color: #181818;
@@ -243,10 +271,17 @@ td {
     right: 0;
     display: none;
     z-index: 14;   
-    border-image: linear-gradient(30deg, #ff6200, #ffff00) 5;
 }
 #close-choice {
-    right: 20px;
+    right: 50px;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+#close-choice:hover {
+    color: #ff6200;
+}
+#food-name {
+    border: none;
 }
 #add img {
     position: relative;
@@ -266,14 +301,15 @@ td {
     width: 50%;
     float: left;
     margin-left: 10%;
-    background-image: linear-gradient(to right, #111, #333, #111);
+    background: #131313;
+    padding-left: 100px;
 }
 #add-form select {
     background-color: #181818;
     border: 5px solid;
     color: white;
     border-image: linear-gradient(30deg, #ff6200, #ffff00) 5;
-    width: 30%;
+    width: 20%;
     margin-right: 10%;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -297,57 +333,59 @@ select::-ms-expand {
 }
 #plus, #moins {
     background-image: linear-gradient(30deg, #ff6200, #ffff00);
-    width: 150px;
+    width: 100px;
     aspect-ratio: 1/1;
     font-size: 40px;
+    font-weight: bold;
 }
 #submit {
     left: 10%;
     right: 10%;
     height: 15%;
-    background-image: linear-gradient(30deg, #ff6200, #ffff00);
-    color: #181818;
+    background: none;
+    border: 5px solid;
+    border-image: linear-gradient(30deg, #ff6200, #ffff00) 5;
+    color: white;
     bottom: 5%;
 }
 #submit:hover {
     opacity: 0.8;
 }
 
-/* BLOG */
 main {
     flex-direction: column;
 }
-#text {
+
+/* CONTACT */
+#contacts {
     background-color: #181818;
-    margin-bottom: 50px;
+    height: auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    padding-block: 50px;
+    border: 5px solid;
+    border-image: linear-gradient(30deg, #ff6200, #ffff00) 5;
 }
-#text img {
-    max-width: 30%;
-    height: 100vh;
+#contacts form {
+    display: flex;
+    flex-direction: column;
 }
-#text p {
-    font-family: 'Almarai', sans-serif;
-    font-size: 1.7vmax;
-    overflow: auto;
-    text-shadow: 3px 3px 8px #FF0000;
+#contacts form input, textarea {
+    border: none;
+    background-color: black;
+
 }
-#text article {
-    flex-direction: row;
-    height: 80%;
+#contacts form input, #contacts form label, textarea {
+    margin-top: 20px;
+    color: white;
     margin-left: 50px;
     margin-right: 50px;
-}
-#text img, #text p {
-    margin-left: 50px;
-    margin-right: 50px;
-    height: 800px;
-}
-#big, #record {
-    visibility: hidden;
+    margin-bottom: 20px;
+    padding-block: 10px;
 }
 
 /* SLIDES BUTTONS */
-#text button, figure button {
+figure button {
     width: 200px;
     height: 200px;
     border-radius: 50%;
@@ -356,13 +394,8 @@ main {
     margin-top: 400px;
     z-index: 13;
 }
-#text button:hover, figure div button:hover {
+figure div button:hover {
     opacity: 0.6;
-}
-#text button div {
-    width: 120px;
-    height: 120px;
-    padding: 30px;
 }
 #left {
     left: 50px;
@@ -400,6 +433,7 @@ footer {
 footer p { 
     padding-block: 100px;
     width: 50%;
+    text-shadow: 3px 3px 8px #f6aa1c;
 }
 br {
     margin-top: 10px;

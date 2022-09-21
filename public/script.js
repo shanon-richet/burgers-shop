@@ -40,15 +40,15 @@ fetch('http://localhost:5000/api/products')
                 <section id="menu-items">
                     <h2>BURGERS</h2>
                     <section class="items" id="burgers">
-                        ${burgers}
+                        ${burgers.join('')}
                     </section>
                     <h2>SIDES</h2>
                     <section class="items" id="sides">
-                        ${sides}
+                        ${sides.join('')}
                     </section>
                     <h2>DESSERTS</h2>
                     <section class="items" id="desserts">
-                        ${desserts}
+                        ${desserts.join('')}
                     </section>
                 </section>
             `
@@ -76,6 +76,7 @@ fetch('http://localhost:5000/api/products')
                 inner.push(`                                
                 <div><label for="sauce">Sauce : </label>
                 <select id="sauces" name="sauce">
+                    <option value="none">Sans</option>
                     <option value="ketchup">Ketchup</option>
                     <option value="mayonnaise">Mayonnaise</option>
                     <option value="brasil">Brasil</option>
@@ -86,15 +87,12 @@ fetch('http://localhost:5000/api/products')
             }
             if (e.target.parentElement.parentElement.getAttribute('id') === "burgers") {
                 inner.push(`                                
-                <div><label for="boisson">Boisson : </label>
-                <select id="boissons" name="boisson">
-                    <option value="none">Aucune</option>
-                    <option value="coca-cola">Coca-Cola</option>
-                    <option value="coca-zero">Coca-Cola Zero</option>
-                    <option value="fanta">Fanta</option>
-                    <option value="fanta-zero">Fanta Zero</option>
-                    <option value="ice-tea">Ice-Tea Pêche</option>
-                </select></div>
+                <div><label for="boissons">Boisson :</label>
+                <input id="add-drink" type="button" name="boissons" value="+"></div>
+                <div><label for="sides">Sides :</label>
+                <input id="add-side" type="button" name="sides" value="+"></div>
+                <div><label for="sauce-a-part">Sauce à part : </label>
+                <input id="add-sauce" type="button" name="sauce-a-part" value="+"></div>
                 `)     
             }
             inner.push(`
@@ -109,6 +107,7 @@ fetch('http://localhost:5000/api/products')
                     child = add_form.lastElementChild
                 }
                 add_form.innerHTML = inner.join('')
+                changeOpacity()
             } else {
                 class Form extends HTMLElement {
                     connectedCallback() {
@@ -120,13 +119,30 @@ fetch('http://localhost:5000/api/products')
                     }
                 }
                 customElements.define("form-menu", Form)
+                changeOpacity()
             }
 
+            function changeOpacity() {
+                var add_form = document.getElementById('add')
+                let op = 0
+                var interval = setInterval(() => {
+                    op += 0.1
+                    add_form.style.opacity = op
+                    if (op == 1) {
+                        op = 0
+                        add_form.style.opacity = 1
+                        clearInterval(interval)
+                    }
+                }, 10)
+            }
             /* QUANTITY */
             var plus = document.getElementById('plus')
             var moins = document.getElementById('moins')
             var quantity = document.getElementById('quantity')
             var add = document.getElementById('submit')
+            var add_drink = document.getElementById('add-drink')
+            var add_side = document.getElementById('add-side')
+            var add_sauce = document.getElementById('add-sauce')
             plus.onclick = () => {
                 quantity.value = Number(quantity.value)+1
                 add.value = `add ${Number(quantity.value) * price} $`
@@ -135,9 +151,50 @@ fetch('http://localhost:5000/api/products')
                 if (Number(quantity.value) > 1) {
                     quantity.value = Number(quantity.value)-1
                     add.value = `add ${Number(quantity.value) * price} $`
-
                 }
             }
+
+            let h = `                                
+                 <div><label for="boisson">Boisson (2,50 $) : </label>
+                 <select id="boissons" name="boisson">
+                     <option value="none">Aucune</option>
+                     <option value="coca-cola">Coca-Cola</option>
+                     <option value="coca-zero">Coca-Cola Zero</option>
+                     <option value="fanta">Fanta</option>
+                     <option value="fanta-zero">Fanta Zero</option>
+                     <option value="ice-tea">Ice-Tea Pêche</option>
+                 </select></div>
+                 `
+            add_drink.onclick = () => {
+                add_drink.parentElement.innerHTML = h
+            }
+
+            let g = `                                
+            <div><label for="side">Sides (5 - 6 $): </label>
+            <select name="side">
+                <option value="frites">Frites (5 $)</option>
+                <option value="nuggets">Nuggets (6 $)</option>
+                <option value="onion-rings">Onion Rings (6 $)</option>
+            </select></div>
+            `
+            add_side.onclick = () => {
+                add_side.parentElement.innerHTML = g
+            }
+
+            let f = `                                
+                <div><label for="sauce">Sauce à part (0,50 $) : </label>
+                <select id="sauce-a-part" name="sauce-a-part">
+                    <option value="ketchup">Ketchup</option>
+                    <option value="mayonnaise">Mayonnaise</option>
+                    <option value="brasil">Brasil</option>
+                    <option value="samourai">Samourai</option>
+                    <option value="barbecue">Barbecue</option>
+                </select></div>
+            `
+            add_sauce.onclick = () => {
+                add_sauce.parentElement.innerHTML = f
+            }
+
         }
     })
 })
@@ -162,14 +219,14 @@ fetch('http://localhost:5000/basket')
             this.innerHTML= `
                 <h2>Panier</h2>
                 <table id="basket">
-                    ${html}
+                    ${html.join('')}
                     <tr>
                         <td>Total</td>
                         <td></td>
                         <td>${total} $</td>
                     </tr>
                 </table>
-                <button id="pay">Commander</button>
+                <button id="command">Commander</button>
             `
         }
     }
@@ -224,11 +281,3 @@ class Payment extends HTMLElement {
     }
 }
 customElements.define('form-payment', Payment)
-
-                // <label for="payment">Payment method :</label>
-                // <select>
-                //    <option value="bancontact">Bancontact</option>
-                //    <option value="cash">Cash</option>
-                //    <option value="paypal">Paypal</option>
-                //    <option value="creditcard">Carte de crédit</option>
-                // </select>

@@ -43,57 +43,19 @@ li[3].onclick = () => {
 li[5].onclick = () => {
     scrollTo(0, menu.offsetTop - navHeader.offsetHeight)
 }
-var slides = document.getElementsByClassName('slides')
-var index = 0
-
-right.onclick = () => {
-    slides[index].style.display = "none"
-    slides[index].style.visibility = "hidden"
-    if (index === slides.length - 1) {
-        index = 0
-    } else {
-        index++
-    }
-    slides[index].style.display = "flex"
-    slides[index].style.visibility = "visible"
-}
-left.onclick = () => {
-    slides[index].style.display = "none"
-    slides[index].style.visibility = "hidden"
-    if (index === 0) {
-        index = slides.length - 1
-    } else {
-        index--
-    }
-    slides[index].style.display = "flex"
-    slides[index].style.visibility = "visible"
-}
-
-// function slideRight(slid, ind, ) {
-//     slides[index].style.display = "none"
-//     slides[index].style.visibility = "hidden"
-//     if (index === slides.length - 1) {
-//         index = 0
-//     } else {
-//         index++
-//     }
-//     slides[index].style.display = "flex"
-//     slides[index].style.visibility = "visible"
-// }
 var fig_imgs = document.querySelectorAll('figure img')
-var fig_left = document.querySelector('figure #left')
-var fig_right = document.querySelector('figure #right')
+var left = document.querySelector('figure #left')
+var right = document.querySelector('figure #right')
 
-var index_img = 0
+var index = 0
 for (let i = 0; i < fig_imgs.length; i++) {
     fig_imgs[i].style.display = "none"
-    if (index_img == i) {
+    if (index == i) {
         fig_imgs[i].style.display = "block"
     }
 }
 
-fig_right.onclick = () => {
-    fig_imgs[index].style.display = "none"
+right.onclick = () => {
     fig_imgs[index].style.visibility = "hidden"
     if (index === fig_imgs.length - 1) {
         index = 0
@@ -103,7 +65,7 @@ fig_right.onclick = () => {
     fig_imgs[index].style.display = "flex"
     fig_imgs[index].style.visibility = "visible"
 }
-fig_left.onclick = () => {
+left.onclick = () => {
     fig_imgs[index].style.display = "none"
     fig_imgs[index].style.visibility = "hidden"
     if (index === 0) {
