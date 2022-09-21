@@ -141,7 +141,7 @@ figure {
 figcaption {
     text-shadow: 4px 4px 8px #f6aa1c;
     width: 90%;
-    height: 35%;
+    height: 30%;
     opacity: 0.8;
     margin-right: auto;
     margin-left: auto;
@@ -156,8 +156,7 @@ figure div {
     flex-direction: row ;
 }
 figure img {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    padding: 50px;
     height: 40%;
     max-width: 3000px;
     position: absolute;
