@@ -48,13 +48,13 @@ table, footer, #contacts input, textarea, #contacts label {
 }
 
 /* WIDTH */ 
-#item, #section-payment, footer {
+#nav-header, #item, #section-payment, footer {
     width: 100%;
 }
 #about, #menu-items h2, .items, #text, #contacts {
     width: 96%;
 }
-#nav-header, #item div, #submit, #div-quantity, #form-payment {
+#item div, #submit, #div-quantity, #form-payment {
     width: 80%;
 }
 
