@@ -34,7 +34,7 @@ li, #shopping-cart, #cart-content h2, #close, #left, #right, #submit{
 table, footer, #contacts input, textarea, #contacts label {
     font-size: 50px;
 }
-#about, #item div {
+#about, #item div, #nav-header li {
     font-size: 3vmin;
 }
 #add-form label, #add-form input, #add-form select{
