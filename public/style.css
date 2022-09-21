@@ -48,20 +48,19 @@ table, footer, #contacts input, textarea, #contacts label {
 }
 
 /* WIDTH */ 
-#nav-header, #item, #section-payment, footer {
+#item, #section-payment, footer {
     width: 100%;
 }
 #about, #menu-items h2, .items, #text, #contacts {
     width: 96%;
 }
-#item div, #submit, #div-quantity, #form-payment {
+#nav-header, #item div, #submit, #div-quantity, #form-payment {
     width: 80%;
 }
 
 /* BORDER */
 #about {
     border: 5px solid #494949;
-
 }
 
 
@@ -82,6 +81,8 @@ table, #add img, #text article {
     top: 0;
     position: fixed;
     padding-block: 60px;
+    padding-left: 50px;
+    padding-right: 50px;
     background-color: #181818;
 }
 
