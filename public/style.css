@@ -109,6 +109,7 @@ li:hover, #shopping-cart:hover {
     top: 0;
     z-index: 13;
 }
+
 #burger img {
     width: 80%;
     top: 5%;
@@ -303,14 +304,14 @@ td {
     flex-direction: column;
 }
 #add-form div {
-    margin-top: 50px;
+    margin-top: 1%;
 }
 #add-form label {
     width: 50%;
     float: left;
     margin-left: 10%;
     background: #131313;
-    padding-left: 100px;
+    padding-left: 5%;
 }
 #add-form select {
     background-color: #181818;
@@ -341,7 +342,7 @@ select::-ms-expand {
 }
 #plus, #moins {
     background-image: linear-gradient(30deg, #ff6200, #ffff00);
-    width: 100px;
+    width: 4%;
     aspect-ratio: 1/1;
     font-weight: bold;
 }
@@ -423,36 +424,6 @@ figure div button:hover {
 #form-payment {
     margin-top: 5%;
     margin-bottom: 5%;
-    flex-direction: column;
-}
-input[type="radio"] {
-    width: 50px;
-    height: 50px;
-}
-/* FOOTER */
-
-footer {
-    background-color: rgb(18, 18, 18);
-    height: 800px;
-    opacity: 0.6;
-}
-footer p { 
-    padding-block: 100px;
-    width: 50%;
-    text-shadow: 3px 3px 8px #f6aa1c;
-}
-br {
-    margin-top: 10px;
-}
-a {
-    color: white;
-}z-index: 14;
-    display: none;
-}
-#form-payment {
-    margin-top: 5%;
-    margin-bottom: 5%;
-    font-size: 60px;
     flex-direction: column;
 }
 input[type="radio"] {
