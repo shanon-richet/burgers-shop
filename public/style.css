@@ -123,6 +123,10 @@ li:hover, #shopping-cart:hover {
     float: right;
     margin-right: 50px;
 }
+svg {
+    fill: white;
+    width: 100px;
+}
 #close-choice {
     width: 100px;
     height: 100px;
