@@ -104,7 +104,6 @@ li:hover, #shopping-cart:hover {
 #burger {
     width: 10%;
     aspect-ratio: 1/1;
-    height: 350px;
     background-color: #181818;
     border-radius: 50%;
     top: 0;
