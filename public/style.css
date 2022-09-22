@@ -2,20 +2,20 @@ body {
     overflow-x: hidden;
     background: black;
 }
-h1, nav, footer, footer p, main, #about, form, #text article, #form-payment, figure {
+h1, nav, footer, footer p, main, #about, form, article, #form-payment, figure {
     display: flex;
 } 
-#burger, #choice, #close-choice, #div-quantity, #submit, #text article, #text button, #section-payment, figure, figure button {
+#burger, #choice, #close-choice, #div-quantity, #submit, #section-payment, figure button {
     position: absolute;
 }
 h1, nav, footer p {
     justify-content: center;
 }
-#nav-header, #text, #burger, #text article, #about p, #menu-items h2, #submit, #choice, #contacts, #form-payment {
+#nav-header, #burger, #about p, #menu-items h2, #submit, #choice, #contacts, #form-payment {
     margin-left: auto;
     margin-right: auto;
 }
-#nav-header, #about figcaption, #menu-items, #text, #add-nom, #food-name, footer, #text button div, table, label, #quantity, #close-choice, figure button {
+#nav-header, #about figcaption, #menu-items, #add-nom, #food-name, footer, table, label, #quantity, #close-choice, figure button {
     color: white;
 }
 h2, #food-name, #quantity {
@@ -56,7 +56,7 @@ footer {
 #nav-header, #item, #section-payment, footer {
     width: 100%;
 }
-#about, #menu-items h2, .items, #text, #contacts {
+#about, #menu-items h2, .items, #contacts {
     width: 96%;
 }
 #item div, #submit, #div-quantity, #form-payment {
@@ -75,17 +75,17 @@ footer {
 #nav-header, #burger {
     opacity: 0.8;
 }
-table, #add img, #text article {
+table, #add img {
     margin-top: 100px;
 }
-#about, #text {
+#about {
     height: 85vh;
 }
 #nav-header {
     z-index: 12;
     top: 0;
     position: fixed;
-    padding-block: 60px;
+    padding-block: 1%;
     background-color: #181818;
 }
 
@@ -134,7 +134,7 @@ svg {
 .hidden {
     display: none;
 }
-#about, tr, #item img, #text, #form-payment label {
+#about, tr, #item img, #form-payment label {
     margin-top: 50px;
 }
 
@@ -144,7 +144,7 @@ svg {
     background-color: #181818;
     margin-right: auto;
     margin-left: auto;
-    margin-top: 400px;
+    margin-top: 5%;
 }
 figure {
     flex-direction: column;
@@ -159,13 +159,11 @@ figcaption {
     margin-left: auto;
     overflow-y: auto;
     background: black;
-    padding-block: 50px;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding: 2%;
 }
 figure div {
     display: flex;
-    flex-direction: row ;
+    flex-direction: row;
 }
 figure img {
     padding: 50px;
@@ -175,16 +173,20 @@ figure img {
     left: 50%;
     transform: translateX(-50%);
 }
-figure #left {
-    left: 100px;
+figure button {
+    width: 10%;
 }
-figure #right {
-    right: 100px;
+#left {
+    margin-left: 2%;
+}
+#right {
+    margin-right: 2%;
 }
 figure button div {
-    width: 100px;
-    height: 100px;
-    padding: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 
