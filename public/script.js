@@ -7,7 +7,7 @@ close.onclick = () => {
     choice.style.display = "none"
 }
 
-fetch('http://localhost:5000/api/products')
+fetch('https://love-burgers.herokuapp.com/api/products')
 .then(res => res.json())
 .then(json => {
     var burgers = []
@@ -199,7 +199,7 @@ fetch('http://localhost:5000/api/products')
     })
 })
 
-fetch('http://localhost:5000/basket')
+fetch('https://love-burgers.herokuapp.com/basket')
 .then(res => res.json())
 .then(json => {
     var html = []
