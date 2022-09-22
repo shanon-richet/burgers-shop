@@ -7,7 +7,7 @@ var left = document.querySelector('#text #left')
 var right = document.querySelector('#text #right')
 
 var menu = document.getElementById('menu-items')
-var shopping = document.getElementById('shopping-cart')
+var shopping = document.querySelector('svg')
 var close = document.getElementById('close')
 
 let pos = -800
