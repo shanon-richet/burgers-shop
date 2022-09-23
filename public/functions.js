@@ -6,8 +6,7 @@ var about = document.getElementById('about')
 var left = document.querySelector('#text #left')
 var right = document.querySelector('#text #right')
 
-var menu = document.getElementById('menu-items')
-var shopping = document.getElementById('shopping-cart')
+var shopping = document.querySelector('svg')
 var close = document.getElementById('close')
 
 let pos = -800
@@ -17,8 +16,10 @@ shopping.onclick = () => {
             cart.style.right = '-50px'
             clearInterval(interval)
         }
+        else {
             pos += 50
             cart.style.right = `${pos}px`
+        }
     }, 1)
 }
 close.onclick = () => {
@@ -27,8 +28,10 @@ close.onclick = () => {
             cart.style.right = "-800px"
             clearInterval(interval)
         }
+        else {
             pos -= 50
             cart.style.right = `${pos}px`
+        }
     }, 1)
 
 }
@@ -40,8 +43,13 @@ li[1].onclick = () => {
 li[3].onclick = () => {
     scrollTo(0, about.offsetTop - navHeader.offsetHeight)
 }
+var menu = document.getElementById('menu')
 li[5].onclick = () => {
     scrollTo(0, menu.offsetTop - navHeader.offsetHeight)
+}
+var contact = document.getElementById('contacts')
+li[7].onclick = () => {
+    scrollTo(0, contact.offsetTop - navHeader.offsetHeight)
 }
 var fig_imgs = document.querySelectorAll('figure img')
 var left = document.querySelector('figure #left')

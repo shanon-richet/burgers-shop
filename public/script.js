@@ -22,6 +22,7 @@ fetch('http://localhost:5000/api/products')
             <p>Prix : ${x.prix} $</p>
             <aside>Ingrédients : ${x.ingredients}</aside>
             </div>
+        <button id="add-btn">ADD</button>
         </article>
         `
         if (x.categorie === 'burgers') {

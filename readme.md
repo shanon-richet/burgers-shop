@@ -1,10 +1,12 @@
 
-<<<<<<< HEAD
-- https://owner.com/97-best-burger-captions-for-instagram/
+This is a fake website who sold hamburgers.
 
-heroku pg:psql postgresql-closed-71526 --app love-burgers
+This app was created with Node js and framework Express for make backend. I use PostgreSQL for make the database.
 
-- BANCONTACT - npm install stripe --save
-- - heroku pg:psql postgresql-closed-71526 --app love-burgers
-=======
->>>>>>> 50fbceb5eaf74618fef0df83589aeb838b2f6572
+## Installs 
+
+- body-parser / cookie / cookie-parser / cors / dotenv / express / express-session / node-postgres / nodemon / pg / uuid
+- stripe
+
+
+# Ce projet n'est pas terminé 

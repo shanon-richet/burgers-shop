@@ -1,23 +1,21 @@
 body {
     overflow-x: hidden;
     background: black;
-    /* background-image: url('img/wood.jpg');
-    background-size: cover; */
 }
-h1, nav, footer, footer p, main, #about, form, #text article, #form-payment, figure {
+h1, nav, footer, footer p, main, #about, form, article, #form-payment, figure {
     display: flex;
 } 
-#burger, #choice, #close-choice, #div-quantity, #submit, #text article, #text button, #section-payment, figure, figure button {
+#burger, #choice, #close-choice, #div-quantity, #submit, #section-payment, figure button {
     position: absolute;
 }
 h1, nav, footer p {
     justify-content: center;
 }
-#nav-header, #text, #burger, #text article, #about p, #menu-items h2, #submit, #choice, #contacts, #form-payment {
+#nav-header, #burger, #about p, #menu-items h2, #submit, #choice, #contacts, #form-payment {
     margin-left: auto;
     margin-right: auto;
 }
-#nav-header, #about figcaption, #menu-items, #text, #add-nom, #food-name, footer, #text button div, table, label, #quantity, #close-choice, figure button {
+#nav-header, #about figcaption, #menu-items, #add-nom, #food-name, footer, table, label, #quantity, #close-choice, figure button {
     color: white;
 }
 h2, #food-name, #quantity {
@@ -31,15 +29,22 @@ h1, #menu-items h2, #close-choice {
 li, #shopping-cart, #cart-content h2, #close, #left, #right, #submit{
     font-size: 80px;
 }
-table, footer, #contacts input, textarea, #contacts label {
+#command, #form-payment, #add-btn {
+    font-size: 60px;
+}
+table, #contacts input, textarea, #contacts label {
     font-size: 50px;
 }
-#about, #item div {
-    font-size: 3vmin;
-}
-#add-form label, #add-form input, #add-form select{
+#add-form label, #add-form input, #add-form select, #plus, #moins{
     font-size: 40px;
 }
+footer {
+    font-size: 2vmin;
+}
+#about, #item div, #nav-header li {
+    font-size: 3vmin;
+}
+
 #close-choice, #add-form div input, button {
     border: none;
 }
@@ -51,7 +56,7 @@ table, footer, #contacts input, textarea, #contacts label {
 #nav-header, #item, #section-payment, footer {
     width: 100%;
 }
-#about, #menu-items h2, .items, #text, #contacts {
+#about, #menu-items h2, .items, #contacts {
     width: 96%;
 }
 #item div, #submit, #div-quantity, #form-payment {
@@ -61,29 +66,43 @@ table, footer, #contacts input, textarea, #contacts label {
 /* BORDER */
 #about {
     border: 5px solid #494949;
-
 }
 
+/* MARGIN */
+table, #add img, #contacts {
+    margin-top: 2%;
+}
+
+/* OPACITY */
+#nav-header, #burger, figcaption, #close:hover, #submit:hover, #add-btn:hover{
+    opacity: 0.8;
+}
+li:hover, #shopping-cart:hover, .items, #item img:hover {
+    opacity: 0.9;
+}
+#close, figure button:hover, footer {
+    opacity: 0.6;
+}
+
+/* TEXT SHADOW */
+figcaption, li:hover, #shopping-cart:hover, #menu-items h2, footer p {
+    text-shadow: 4px 4px 8px #f6aa1c;
+}
 
 #menu-items h2, #nav-header {
     font-family: 'Bubblegum Sans', cursive;
 }
-#nav-header, #burger {
-    opacity: 0.8;
-}
-table, #add img, #text article {
-    margin-top: 100px;
-}
-#about, #text {
+#about {
     height: 85vh;
 }
 #nav-header {
     z-index: 12;
     top: 0;
     position: fixed;
-    padding-block: 60px;
+    padding-block: 1%;
     background-color: #181818;
 }
+
 
 li {
     list-style: none;
@@ -91,21 +110,19 @@ li {
     padding-block: 10px;
 }
 li:hover, #shopping-cart:hover {
-    opacity: 0.9;
     cursor: pointer;
-    text-shadow: 3px 3px 8px #f6aa1c;
-
 }
 #burger {
-    width: 400px;
-    height: 350px;
+    width: 7%;
+    aspect-ratio: 1/1;
     background-color: #181818;
     border-radius: 50%;
     top: 0;
     z-index: 13;
 }
 #burger img {
-    width: 300px;
+    width: 80%;
+    top: 5%;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
@@ -116,6 +133,10 @@ li:hover, #shopping-cart:hover {
     float: right;
     margin-right: 50px;
 }
+svg {
+    fill: white;
+    width: 20%;
+}
 #close-choice {
     width: 100px;
     height: 100px;
@@ -123,7 +144,7 @@ li:hover, #shopping-cart:hover {
 .hidden {
     display: none;
 }
-#about, tr, #item img, #text, #form-payment label {
+#about, tr, #item img, #form-payment label {
     margin-top: 50px;
 }
 
@@ -133,48 +154,44 @@ li:hover, #shopping-cart:hover {
     background-color: #181818;
     margin-right: auto;
     margin-left: auto;
-    margin-top: 400px;
+    margin-top: 7%;
 }
 figure {
     flex-direction: column;
     height: 100%;
 }
 figcaption {
-    text-shadow: 4px 4px 8px #f6aa1c;
     width: 90%;
-    height: 35%;
-    opacity: 0.8;
+    height: 30%;
     margin-right: auto;
     margin-left: auto;
     overflow-y: auto;
     background: black;
-    padding-block: 50px;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding: 2%;
 }
 figure div {
     display: flex;
-    flex-direction: row ;
+    flex-direction: row;
 }
 figure img {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    padding: 4%;
     height: 40%;
     max-width: 3000px;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
 }
-figure #left {
-    left: 100px;
+figure button {
+    width: 10%;
 }
-figure #right {
-    right: 100px;
+#left {
+    margin-left: 2%;
+}
+#right {
+    margin-right: 2%;
 }
 figure button div {
-    width: 100px;
-    height: 100px;
-    padding: 40px;
+    margin-left: 25%;
 }
 
 
@@ -195,12 +212,10 @@ figure button div {
     height: 150px;
     padding: 20px;
     float: right;
-    opacity: 0.5;
     color: white;
 }
 #close:hover {
     cursor: pointer;
-    opacity: 0.8;
 }
 table {
     margin-left: 40px;
@@ -213,7 +228,6 @@ td {
     width: 500px;
 }
 #command {
-    font-size: 60px;
     margin-left: 50px;
     margin-top: 50px;
     padding-block: 20px;
@@ -229,13 +243,11 @@ td {
 /* MENU */
 
 #menu-items h2 {
-    text-shadow: 4px 4px 8px #f6aa1c;
     background-color: rgb(18, 18, 18);
     padding-block: 50px;
     border: 5px solid #494949;
 }
 .items {
-    opacity: 0.9;
     margin-left: auto;
     margin-right: auto;
 }
@@ -254,11 +266,20 @@ td {
 }
 #item img:hover {
     transform: scale(1.3);
-    opacity: 0.9;
 }
 #item div {
     margin-left: auto;
     margin-right: auto;
+}
+#add-btn {
+    position: relative;
+    right: 7%;
+    height: 15%;
+    top: 80%;
+    background: none;
+    border: 5px solid;
+    border-image: linear-gradient(30deg, #ff6200, #ffff00) 5;
+    color: white;
 }
 
 /* CHOICES */
@@ -287,22 +308,22 @@ td {
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    width: 500px;
-    height: 500px;
+    width: 15%;
+    aspect-ratio: 1/1;
     margin-bottom: 100px;
 }
 #add-form {
     flex-direction: column;
 }
 #add-form div {
-    margin-top: 50px;
+    margin-top: 1%;
 }
 #add-form label {
     width: 50%;
     float: left;
     margin-left: 10%;
     background: #131313;
-    padding-left: 100px;
+    padding-left: 5%;
 }
 #add-form select {
     background-color: #181818;
@@ -333,9 +354,8 @@ select::-ms-expand {
 }
 #plus, #moins {
     background-image: linear-gradient(30deg, #ff6200, #ffff00);
-    width: 100px;
+    width: 4%;
     aspect-ratio: 1/1;
-    font-size: 40px;
     font-weight: bold;
 }
 #submit {
@@ -348,9 +368,6 @@ select::-ms-expand {
     color: white;
     bottom: 5%;
 }
-#submit:hover {
-    opacity: 0.8;
-}
 
 main {
     flex-direction: column;
@@ -359,8 +376,7 @@ main {
 /* CONTACT */
 #contacts {
     background-color: #181818;
-    height: auto;
-    margin-top: 100px;
+    height: 50%;
     margin-bottom: 100px;
     padding-block: 50px;
     border: 5px solid;
@@ -394,9 +410,6 @@ figure button {
     margin-top: 400px;
     z-index: 13;
 }
-figure div button:hover {
-    opacity: 0.6;
-}
 #left {
     left: 50px;
 }
@@ -416,7 +429,6 @@ figure div button:hover {
 #form-payment {
     margin-top: 5%;
     margin-bottom: 5%;
-    font-size: 60px;
     flex-direction: column;
 }
 input[type="radio"] {
@@ -428,16 +440,11 @@ input[type="radio"] {
 footer {
     background-color: rgb(18, 18, 18);
     height: 800px;
-    opacity: 0.6;
 }
 footer p { 
     padding-block: 100px;
     width: 50%;
-    text-shadow: 3px 3px 8px #f6aa1c;
 }
 br {
     margin-top: 10px;
-}
-a {
-    color: white;
 }
