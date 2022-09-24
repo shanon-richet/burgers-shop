@@ -9,15 +9,17 @@ const getBasket = (async(req, res) => {
 })
 
 const addToBasket = (async(req, res) => {
+    console.log(req.cookies)
+    console.log(req.body)
     if (req.cookies.burger == undefined) {
         res.cookie('burger', uuidv4())
     }
+
     const id = await pool.query(`SELECT id from produits WHERE nom = ('${req.body.nom}');`)
     const query = {
-        text: `INSERT INTO basket(card_id, id_produit, quantity, sauce) VALUES($1, $2, $3, $4) RETURNING *`,
-        values: [`${req.cookies.burger}`, `${id.rows[0].id}`, `${req.body.quantity}`, `${req.body.sauce}`]
+        text: `INSERT INTO basket(card_id, id_produit, quantity, sauce, boisson) VALUES($1, $2, $3, $4, $5) RETURNING *`,
+        values: [`${req.cookies.burger}`, `${id.rows[0].id}`, `${req.body.quantity}`, `${req.body.sauce}`, `${req.body.boisson}`]
     }
-    console.log('Cookie', req.cookies)
     pool.query(query, (err, r) => {
         if (err) {
             throw err
@@ -28,7 +30,11 @@ const addToBasket = (async(req, res) => {
 })
 
 const deleteFromBasket = (async(req, res) => {
-
+    console.log(req.cookies)
+    console.log(req.body)
+    // const query = {
+    //     text: `DELETE FROM basket WHERE card_id = $1 AND `
+    // }
 })
 
 export {getBasket, addToBasket, deleteFromBasket}

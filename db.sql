@@ -15,11 +15,12 @@ VALUES
 ('Double Chicken', 'burgers', 10, 'img/burgers/burger4.png', '2 poulet pané, 2 tranches de cheddar, tomate, salade, oignon'),
 ('Fish Burger', 'burgers', 6, 'img/burgers/burger5.png', 'poisson pané, tranche de cheddar, tomate, salade, oignon'),
 ('Frites', 'snacks', 5, 'img/snacks/fries.png', 'patates'),
-('Nuggets', 'snacks', 6, 'img/snacks/nuggets.png', 'poulet'),
-('Oignons frits', 'snacks', 6, 'img/snacks/onion-rings.png', 'oignon'),
+('Nuggets', 'snacks', 5, 'img/snacks/nuggets.png', 'poulet'),
+('Beignets à l''oignon', 'snacks', 5, 'img/snacks/onion-rings.png', 'oignon'),
 ('Brownies', 'desserts', 5, 'img/desserts/dessert1.png', 'cake au chocolat, ganache au chocolat'),
 ('Muffin', 'desserts', 5, 'img/desserts/dessert2.png', 'cake nature, pépite de chocolat'),
-('Tiramisu', 'desserts', 5, 'img/desserts/dessert3.png', 'biscuits, crème, cacao');
+('Tiramisu', 'desserts', 5, 'img/desserts/dessert3.png', 'biscuits, crême, cacao');
+
 CREATE TABLE additionnal(
     id SERIAL PRIMARY KEY,
     nom TEXT NOT NULL,
@@ -55,11 +56,12 @@ create TABLE basket(
     card_id TEXT NOT NULL,
     id_produit INT NOT NULL,
     quantity INT NOT NULL,
-    sauce TEXT
+    sauce TEXT,
+    boisson TEXT
 );
-insert into basket(card_id, id_produit, quantity, sauce) 
-VALUES (1, 1, 2, 'ketchup');
+insert into basket(card_id, id_produit, quantity, sauce, boisson) 
+VALUES (1, 1, 2, 'ketchup', 'Coca Cola', 'Frites', null);
 
 ALTER TABLE basket ADD FOREIGN KEY (id_produit) REFERENCES produits(id);
 
-select nom, prix, img, quantity from basket INNER JOIN produits ON produits.id = id_produit WHERE id_produit = 1;
+select nom, prix, img, quantity, sauce, boisson from basket INNER JOIN produits ON produits.id = id_produit WHERE id_produit = 1;

@@ -15,7 +15,7 @@ h1, nav, footer p {
     margin-left: auto;
     margin-right: auto;
 }
-#nav-header, #about figcaption, #menu-items, #add-nom, #food-name, footer, table, label, #quantity, #close-choice, figure button {
+#nav-header, #about figcaption, #menu-items, #add-nom, #food-name, footer, table input, label, #quantity, #close-choice, figure button, #command, #cart-content {
     color: white;
 }
 h2, #food-name, #quantity {
@@ -38,7 +38,7 @@ table, #contacts input, textarea, #contacts label {
 #add-form label, #add-form input, #add-form select, #plus, #moins{
     font-size: 40px;
 }
-footer {
+#delete, td input, footer {
     font-size: 2vmin;
 }
 #about, #item div, #nav-header li {
@@ -74,7 +74,7 @@ table, #add img, #contacts {
 }
 
 /* OPACITY */
-#nav-header, #burger, figcaption, #close:hover, #submit:hover, #add-btn:hover{
+#nav-header, #burger, figcaption, #close:hover, #submit:hover, #add-btn:hover, #delete:hover{
     opacity: 0.8;
 }
 li:hover, #shopping-cart:hover, .items, #item img:hover {
@@ -198,13 +198,12 @@ figure button div {
 
 /* BASKET */
 #cart-content {
-    width: 800px;
+    width: 1200px;
     height: 100%;
     position: fixed;
     background-color: #181818;
-    right: -800px;
+    right: -1200px;
     top: 0px;
-    color: white;
     z-index: 15;
     border: 1px solid #494949;
 }
@@ -215,31 +214,42 @@ figure button div {
     float: right;
     color: white;
 }
-#close:hover {
-    cursor: pointer;
-}
 table {
-    margin-left: 40px;
+    margin-left: 5%;
+    margin-right: 2%;
 }
 td {
-    margin-left: 40px;
-    padding-top: 50px;
+    padding-top: 2%;
 }
-#td-nom {
-    width: 500px;
+td input {
+    background: none;
+    border: none;
+}
+#td input{
+    width: 100px;
+}
+#td-nom input {
+    width: 600px;
+}
+#delete {
+    background: none;
+    border: 5px solid;
+    border-image: linear-gradient(30deg, #ff6200, #ffff00) 5;
+    color: white;   
+    margin-left: 90%;
 }
 #command {
-    margin-left: 50px;
-    margin-top: 50px;
+    position: absolute;
+    width: auto;
+    bottom: 10%;
+    right: 10%;
     padding-block: 20px;
     padding-left: 20px;
     padding-right: 20px;
     background: none;
     border: 5px solid;
     border-image: linear-gradient(30deg, #ff6200, #ffff00) 5;
-    color: white;
 }
-
 
 /* MENU */
 

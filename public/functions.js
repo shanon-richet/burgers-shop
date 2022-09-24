@@ -9,7 +9,7 @@ var right = document.querySelector('#text #right')
 var shopping = document.querySelector('svg')
 var close = document.getElementById('close')
 
-let pos = -800
+let pos = -1200
 shopping.onclick = () => {
     var interval = setInterval(() => {
         if (pos === -50) {
@@ -24,8 +24,8 @@ shopping.onclick = () => {
 }
 close.onclick = () => {
     var interval = setInterval(() => {
-        if (pos === -800) {
-            cart.style.right = "-800px"
+        if (pos === -1200) {
+            cart.style.right = "-1200px"
             clearInterval(interval)
         }
         else {

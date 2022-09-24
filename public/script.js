@@ -19,7 +19,7 @@ fetch('https://love-burgers.herokuapp.com/api/products')
         <img src="${x.img}">
             <div>
             <h3><b>${x.nom}</b></h3>
-            <p>Prix : ${x.prix} $</p>
+            <p>Prix : ${x.prix} €</p>
             <aside>Ingrédients : ${x.ingredients}</aside>
             </div>
         <button id="add-btn">ADD</button>
@@ -56,13 +56,14 @@ fetch('https://love-burgers.herokuapp.com/api/products')
         }
     }
     customElements.define('menu-content', Menu)
-    const items = document.querySelectorAll('#item')
 
+    const items = document.querySelectorAll('#item')
     items.forEach(function(x) {
         x.onclick = (e) => {
+            const reg = /[0-9]+/g
             var add_form = document.getElementById('add')
             let t = e.target.parentElement.childNodes
-            let price = t[3].childNodes[3].textContent.match(/[0-9]+/g)
+            let price = t[3].childNodes[3].textContent.match(reg)
             choice.style.display = "block"
             choice.style.top = `${window.pageYOffset + 200}px`
 
@@ -77,7 +78,7 @@ fetch('https://love-burgers.herokuapp.com/api/products')
                 inner.push(`                                
                 <div><label for="sauce">Sauce : </label>
                 <select id="sauces" name="sauce">
-                    <option value="none">Sans</option>
+                    <option value="null">Sans sauce</option>
                     <option value="ketchup">Ketchup</option>
                     <option value="mayonnaise">Mayonnaise</option>
                     <option value="brasil">Brasil</option>
@@ -88,12 +89,16 @@ fetch('https://love-burgers.herokuapp.com/api/products')
             }
             if (e.target.parentElement.parentElement.getAttribute('id') === "burgers") {
                 inner.push(`                                
-                <div><label for="boissons">Boisson :</label>
-                <input id="add-drink" type="button" name="boissons" value="+"></div>
-                <div><label for="sides">Sides :</label>
-                <input id="add-side" type="button" name="sides" value="+"></div>
-                <div><label for="sauce-a-part">Sauce à part : </label>
-                <input id="add-sauce" type="button" name="sauce-a-part" value="+"></div>
+                <div><label for="boisson">Boisson (+2,5 €) :</label>
+                <input id="add-drink" type="button" name="boisson" value="+">
+                <select id="boisson" name="boisson" hidden>
+                    <option value="null"></option>
+                    <option value="coca-cola">Coca-Cola</option>
+                    <option value="coca-zero">Coca-Cola Zero</option>
+                    <option value="fanta">Fanta</option>
+                    <option value="fanta-zero">Fanta Zero</option>
+                    <option value="ice-tea">Ice-Tea Pêche</option>
+                </select></div>
                 `)     
             }
             inner.push(`
@@ -142,11 +147,11 @@ fetch('https://love-burgers.herokuapp.com/api/products')
             var quantity = document.getElementById('quantity')
             var add = document.getElementById('submit')
             var add_drink = document.getElementById('add-drink')
-            var add_side = document.getElementById('add-side')
-            var add_sauce = document.getElementById('add-sauce')
+            var select_drink = document.getElementById('boisson')
             plus.onclick = () => {
+                let once = Number(add.value.match(reg).join('.')) / quantity.value
                 quantity.value = Number(quantity.value)+1
-                add.value = `add ${Number(quantity.value) * price} $`
+                add.value = `add ${once * quantity.value} €`
             }
             moins.onclick = () => {
                 if (Number(quantity.value) > 1) {
@@ -154,46 +159,11 @@ fetch('https://love-burgers.herokuapp.com/api/products')
                     add.value = `add ${Number(quantity.value) * price} $`
                 }
             }
-
-            let h = `                                
-                 <div><label for="boisson">Boisson (2,50 $) : </label>
-                 <select id="boissons" name="boisson">
-                     <option value="none">Aucune</option>
-                     <option value="coca-cola">Coca-Cola</option>
-                     <option value="coca-zero">Coca-Cola Zero</option>
-                     <option value="fanta">Fanta</option>
-                     <option value="fanta-zero">Fanta Zero</option>
-                     <option value="ice-tea">Ice-Tea Pêche</option>
-                 </select></div>
-                 `
             add_drink.onclick = () => {
-                add_drink.parentElement.innerHTML = h
-            }
-
-            let g = `                                
-            <div><label for="side">Sides (5 - 6 $): </label>
-            <select name="side">
-                <option value="frites">Frites (5 $)</option>
-                <option value="nuggets">Nuggets (6 $)</option>
-                <option value="onion-rings">Onion Rings (6 $)</option>
-            </select></div>
-            `
-            add_side.onclick = () => {
-                add_side.parentElement.innerHTML = g
-            }
-
-            let f = `                                
-                <div><label for="sauce">Sauce à part (0,50 $) : </label>
-                <select id="sauce-a-part" name="sauce-a-part">
-                    <option value="ketchup">Ketchup</option>
-                    <option value="mayonnaise">Mayonnaise</option>
-                    <option value="brasil">Brasil</option>
-                    <option value="samourai">Samourai</option>
-                    <option value="barbecue">Barbecue</option>
-                </select></div>
-            `
-            add_sauce.onclick = () => {
-                add_sauce.parentElement.innerHTML = f
+                select_drink.firstElementChild.remove()
+                select_drink.style.display = "block"
+                add_drink.style.display = "none"
+                add.value = `add ${Number(add.value.match(reg).join('.')) + 2.5 * Number(quantity.value)} €`
             }
 
         }
@@ -203,14 +173,16 @@ fetch('https://love-burgers.herokuapp.com/api/products')
 fetch('https://love-burgers.herokuapp.com/basket')
 .then(res => res.json())
 .then(json => {
+    console.log(json)
     var html = []
     var total = 0
     for (const x of json) {
         html.push(`
         <tr>
-            <td id="td">${x.quantity}</td>
-            <td id="td-nom">${x.nom}</td>
-            <td id="td">${x.prix} $</td>
+            <td id="td"><input name="quantity" value="${x.quantity}"></td>
+            <td id="td-nom"><input name="nom" value="${x.nom}"></td>
+            <td id="td"><input name="prix" value="${x.prix}€"></td>
+            <td><input type="submit" id="delete" value="X" form="form-delete"></td>
         </tr>
         `)
         total += x.prix * x.quantity
@@ -219,15 +191,19 @@ fetch('https://love-burgers.herokuapp.com/basket')
         connectedCallback() {
             this.innerHTML= `
                 <h2>Panier</h2>
+                <form id="form-delete" method="post" action="/delete"></form>
                 <table id="basket">
-                    ${html.join('')}
-                    <tr>
-                        <td>Total</td>
-                        <td></td>
-                        <td>${total} $</td>
-                    </tr>
+                        ${html.join('')}
+                        <tr>
+                            <td>Total</td>
+                            <td></td>
+                            <td>${total} $</td>
+                        </tr>
                 </table>
-                <button id="command">Commander</button>
+                <form action="/command" method="post">
+                    <input id="command" value="Commander">
+                </form>
+                </form>
             `
         }
     }
