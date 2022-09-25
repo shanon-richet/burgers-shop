@@ -11,7 +11,7 @@ h1, nav, footer, footer p, main, #about, form, article, #form-payment, figure {
 h1, nav, footer p {
     justify-content: center;
 }
-#nav-header, #burger, #about p, #menu-items h2, #submit, #choice, #contacts, #form-payment {
+#nav-header, #burger, #about, figure img, figcaption, #nav-menu, #menu-items h2, .items, #item div, #submit, #choice, #contacts, #form-payment {
     margin-left: auto;
     margin-right: auto;
 }
@@ -45,7 +45,7 @@ table, #contacts input, textarea, #contacts label {
     font-size: 3vmin;
 }
 
-#close-choice, #add-form div input, button {
+#close-choice, #add-form div input, button, td input, #food-name, #contacts input, textarea {
     border: none;
 }
 #close-choice, #food-name, #quantity {
@@ -56,16 +56,23 @@ table, #contacts input, textarea, #contacts label {
 #nav-header, #item, #section-payment, footer {
     width: 100%;
 }
-#about, #menu-items h2, .items, #contacts {
+#about, #nav-menu, #menu-items h2, .items, #contacts {
     width: 96%;
 }
 #item div, #submit, #div-quantity, #form-payment {
     width: 80%;
-}
+} 
 
 /* BORDER */
-#about {
+#about, #menu-items h2, #cart-content, #choice, #contacts {
     border: 5px solid #494949;
+}
+#nav-menu li:hover, #delete, #add-btn, #command, #add-form select, #submit {
+    border: 5px solid;
+    border-image: linear-gradient(30deg, #ff6200, #ffff00) 5;
+}
+#burger, figure button {
+    border-radius: 50%;
 }
 
 /* MARGIN */
@@ -100,6 +107,7 @@ figcaption, li:hover, #shopping-cart:hover, #menu-items h2, footer p {
     top: 0;
     position: fixed;
     padding-block: 1%;
+    height: 4%;
     background-color: #181818;
 }
 
@@ -116,7 +124,6 @@ li:hover, #shopping-cart:hover {
     width: 7%;
     aspect-ratio: 1/1;
     background-color: #181818;
-    border-radius: 50%;
     top: 0;
     z-index: 13;
 }
@@ -153,19 +160,21 @@ svg {
 #about {
     flex-direction: column;
     background-color: #181818;
-    margin-right: auto;
-    margin-left: auto;
     margin-top: 7%;
+    height: auto;
 }
 figure {
     flex-direction: column;
-    height: 100%;
+}
+figure img {
+    width: 96%;
+    max-height: 85vh;
+    object-fit: cover;
+    margin-bottom: 2%;
 }
 figcaption {
     width: 90%;
-    height: 30%;
-    margin-right: auto;
-    margin-left: auto;
+    height: 25%;
     overflow-y: auto;
     background: black;
     padding: 2%;
@@ -174,15 +183,8 @@ figure div {
     display: flex;
     flex-direction: row;
 }
-figure img {
-    padding: 4%;
-    height: 40%;
-    max-width: 3000px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
 figure button {
+    top: 25%;
     width: 10%;
 }
 #left {
@@ -196,71 +198,25 @@ figure button div {
 }
 
 
-/* BASKET */
-#cart-content {
-    width: 1200px;
-    height: 100%;
-    position: fixed;
-    background-color: #181818;
-    right: -1200px;
-    top: 0px;
-    z-index: 15;
-    border: 1px solid #494949;
-}
-#close {
-    width: 150px;
-    height: 150px;
-    padding: 20px;
-    float: right;
-    color: white;
-}
-table {
-    margin-left: 5%;
-    margin-right: 2%;
-}
-td {
-    padding-top: 2%;
-}
-td input {
-    background: none;
-    border: none;
-}
-#td input{
-    width: 100px;
-}
-#td-nom input {
-    width: 600px;
-}
-#delete {
-    background: none;
-    border: 5px solid;
-    border-image: linear-gradient(30deg, #ff6200, #ffff00) 5;
-    color: white;   
-    margin-left: 90%;
-}
-#command {
-    position: absolute;
-    width: auto;
-    bottom: 10%;
-    right: 10%;
-    padding-block: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    background: none;
-    border: 5px solid;
-    border-image: linear-gradient(30deg, #ff6200, #ffff00) 5;
-}
-
 /* MENU */
+
+#nav-menu {
+    color: white;
+    background-color: #181818;
+    margin-top: 4%;
+    padding-block: 1%;
+}
+#nav-menu li {
+    padding-left: 1%;
+    padding-right: 1%;
+    border-radius: 5%;
+}
+#nav-menu li:hover {
+}
 
 #menu-items h2 {
     background-color: rgb(18, 18, 18);
     padding-block: 50px;
-    border: 5px solid #494949;
-}
-.items {
-    margin-left: auto;
-    margin-right: auto;
 }
 #item {
     background-color: #181818;
@@ -278,24 +234,65 @@ td input {
 #item img:hover {
     transform: scale(1.3);
 }
-#item div {
-    margin-left: auto;
-    margin-right: auto;
-}
 #add-btn {
     position: relative;
     right: 7%;
     height: 15%;
     top: 80%;
     background: none;
-    border: 5px solid;
-    border-image: linear-gradient(30deg, #ff6200, #ffff00) 5;
     color: white;
 }
 
+/* BASKET */
+#cart-content {
+    width: 1200px;
+    height: 100%;
+    position: fixed;
+    background-color: #181818;
+    right: -1200px;
+    top: 0px;
+    z-index: 15;
+}
+#close {
+    width: 150px;
+    height: 150px;
+    padding: 20px;
+    float: right;
+    color: white;
+}
+table {
+    margin-left: 5%;
+    margin-right: 2%;
+}
+td {
+    padding-top: 2%;
+}
+td input {
+    background: none;
+}
+#td input{
+    width: 100px;
+}
+#td-nom input {
+    width: 600px;
+}
+#delete {
+    background: none;
+    color: white;   
+    margin-left: 90%;
+}
+#command {
+    position: absolute;
+    width: auto;
+    bottom: 10%;
+    right: 10%;
+    padding-block: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background: none;
+}
 /* CHOICES */
 #choice {
-    border: 5px solid #494949;
     width: 90%;
     height: 90%;
     background-color: #181818;
@@ -311,9 +308,6 @@ td input {
 }
 #close-choice:hover {
     color: #ff6200;
-}
-#food-name {
-    border: none;
 }
 #add img {
     position: relative;
@@ -338,9 +332,7 @@ td input {
 }
 #add-form select {
     background-color: #181818;
-    border: 5px solid;
     color: white;
-    border-image: linear-gradient(30deg, #ff6200, #ffff00) 5;
     width: 20%;
     margin-right: 10%;
     -webkit-appearance: none;
@@ -374,8 +366,6 @@ select::-ms-expand {
     right: 10%;
     height: 15%;
     background: none;
-    border: 5px solid;
-    border-image: linear-gradient(30deg, #ff6200, #ffff00) 5;
     color: white;
     bottom: 5%;
 }
@@ -390,15 +380,12 @@ main {
     height: 50%;
     margin-bottom: 100px;
     padding-block: 50px;
-    border: 5px solid;
-    border-image: linear-gradient(30deg, #ff6200, #ffff00) 5;
 }
 #contacts form {
     display: flex;
     flex-direction: column;
 }
 #contacts form input, textarea {
-    border: none;
     background-color: black;
 
 }
@@ -415,7 +402,6 @@ main {
 figure button {
     width: 200px;
     height: 200px;
-    border-radius: 50%;
     background: rgb(55, 55, 55);
     opacity: 0.3;
     margin-top: 400px;
@@ -431,7 +417,6 @@ figure button {
 /* PAYMENT */
 
 #section-payment {
-    height: auto;
     background-color: #181818;
     color: white;
     z-index: 14;

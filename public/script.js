@@ -1,3 +1,4 @@
+import scrollBtn from "./functions.js"
 
 var choice = document.getElementById('choice')
 var nav = document.getElementById('food-nav')
@@ -7,12 +8,13 @@ close.onclick = () => {
     choice.style.display = "none"
 }
 
-fetch('https://love-burgers.herokuapp.com/api/products')
+fetch('http://localhost:5000/api/products')
 .then(res => res.json())
 .then(json => {
     var burgers = []
     var sides = []
     var desserts = []
+
     for (const x of json) {
         var html = `
         <article id="item">
@@ -43,7 +45,7 @@ fetch('https://love-burgers.herokuapp.com/api/products')
                     <section class="items" id="burgers">
                         ${burgers.join('')}
                     </section>
-                    <h2>SIDES</h2>
+                    <h2>Accompagnements</h2>
                     <section class="items" id="sides">
                         ${sides.join('')}
                     </section>
@@ -56,6 +58,14 @@ fetch('https://love-burgers.herokuapp.com/api/products')
         }
     }
     customElements.define('menu-content', Menu)
+
+    var navMenu = document.getElementById('nav-menu')
+    var titles = document.querySelectorAll('.items')
+    var li2 = navMenu.childNodes
+    console.log(titles)
+    scrollBtn(li2[1], titles[0].offsetTop - navMenu.offsetHeight)
+    scrollBtn(li2[3], titles[1].offsetTop - navMenu.offsetHeight)
+    scrollBtn(li2[5], titles[2].offsetTop - navMenu.offsetHeight)
 
     const items = document.querySelectorAll('#item')
     items.forEach(function(x) {
@@ -170,10 +180,9 @@ fetch('https://love-burgers.herokuapp.com/api/products')
     })
 })
 
-fetch('https://love-burgers.herokuapp.com/basket')
+fetch('http://localhost:5000/basket')
 .then(res => res.json())
 .then(json => {
-    console.log(json)
     var html = []
     var total = 0
     for (const x of json) {
@@ -182,11 +191,17 @@ fetch('https://love-burgers.herokuapp.com/basket')
             <td id="td"><input name="quantity" value="${x.quantity}"></td>
             <td id="td-nom"><input name="nom" value="${x.nom}"></td>
             <td id="td"><input name="prix" value="${x.prix}€"></td>
-            <td><input type="submit" id="delete" value="X" form="form-delete"></td>
+            <td>
+                <form method="post" action="/delete">
+                    <input type="hidden" name="nom" value="${x.nom}">
+                    <input type="submit" id="delete" value="X">
+                </form>
+            </td>
         </tr>
         `)
         total += x.prix * x.quantity
     }
+
     class Basket extends HTMLElement {
         connectedCallback() {
             this.innerHTML= `
@@ -202,7 +217,6 @@ fetch('https://love-burgers.herokuapp.com/basket')
                 </table>
                 <form action="/command" method="post">
                     <input id="command" value="Commander">
-                </form>
                 </form>
             `
         }
@@ -258,3 +272,4 @@ class Payment extends HTMLElement {
     }
 }
 customElements.define('form-payment', Payment)
+

@@ -36,51 +36,53 @@ close.onclick = () => {
 
 }
 
-var li = navHeader.childNodes
-li[1].onclick = () => {
-    scrollTo(0, 0)
-}
-li[3].onclick = () => {
-    scrollTo(0, about.offsetTop - navHeader.offsetHeight)
-}
-var menu = document.getElementById('menu')
-li[5].onclick = () => {
-    scrollTo(0, menu.offsetTop - navHeader.offsetHeight)
-}
-var contact = document.getElementById('contacts')
-li[7].onclick = () => {
-    scrollTo(0, contact.offsetTop - navHeader.offsetHeight)
-}
-var fig_imgs = document.querySelectorAll('figure img')
-var left = document.querySelector('figure #left')
-var right = document.querySelector('figure #right')
-
-var index = 0
-for (let i = 0; i < fig_imgs.length; i++) {
-    fig_imgs[i].style.display = "none"
-    if (index == i) {
-        fig_imgs[i].style.display = "block"
+/* SCROLL */
+export default function scrollBtn(x, y) {
+    x.onclick = () => {
+        scrollTo(0, y)
     }
 }
 
-right.onclick = () => {
-    fig_imgs[index].style.visibility = "hidden"
-    if (index === fig_imgs.length - 1) {
+var li = navHeader.childNodes
+var menu = document.getElementById('menu')
+var contact = document.getElementById('contacts')
+
+scrollBtn(li[1], 0)
+scrollBtn(li[3], about.offsetTop - navHeader.offsetHeight)
+scrollBtn(li[5], menu.offsetTop - navHeader.offsetHeight)
+scrollBtn(li[7], contact.offsetTop - navHeader.offsetHeight)
+
+
+/* SLIDES */
+
+var fig_img = document.querySelector('figure img')
+var left = document.querySelector('figure #left')
+var right = document.querySelector('figure #right')
+const srcs = ['grill.jpg', 'food.jpg', 'in-n-out.jpg', 'resto.jpg', 'service.jpg']
+var index = 0
+
+function slideRight() {
+    if (index === srcs.length - 1) {
         index = 0
     } else {
         index++
     }
-    fig_imgs[index].style.display = "flex"
-    fig_imgs[index].style.visibility = "visible"
+    fig_img.src = `img/about/${srcs[index]}`
+}
+
+var interval = setInterval(() => {
+    slideRight()
+}, 5000)
+
+right.onclick = () => {
+    slideRight()
 }
 left.onclick = () => {
-    fig_imgs[index].style.display = "none"
-    fig_imgs[index].style.visibility = "hidden"
-    if (index === 0) {
-        index = fig_imgs.length - 1
+    if (index === srcs.length - 1) {
+        index = 0
     } else {
         index--
     }
-    fig_imgs[index].style.display = "flex"
-    fig_imgs[index].style.visibility = "visible"
+    fig_img.src = `img/about/${srcs[index]}`
+
 }

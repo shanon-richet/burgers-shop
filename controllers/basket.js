@@ -1,5 +1,4 @@
 import pool from '../db.mjs'
-import cookie from 'cookie'
 import {v4 as uuidv4} from 'uuid'
 
 
@@ -9,8 +8,6 @@ const getBasket = (async(req, res) => {
 })
 
 const addToBasket = (async(req, res) => {
-    console.log(req.cookies)
-    console.log(req.body)
     if (req.cookies.burger == undefined) {
         res.cookie('burger', uuidv4())
     }
@@ -30,11 +27,15 @@ const addToBasket = (async(req, res) => {
 })
 
 const deleteFromBasket = (async(req, res) => {
-    console.log(req.cookies)
-    console.log(req.body)
-    // const query = {
-    //     text: `DELETE FROM basket WHERE card_id = $1 AND `
-    // }
+    var id = await pool.query(`SELECT id_produit FROM basket INNER JOIN produits ON produits.id = id_produit WHERE nom = ('${req.body.nom}');`)
+    pool.query('DELETE FROM basket WHERE card_id= $1 AND id_produit= $2', [req.cookies.burger, id.rows[0].id_produit], (err, r) => {
+        if (err) {
+            throw err
+        } else {
+            res.redirect('/')
+            console.log(req.body.nom, 'supprimé')
+        }
+    })
 })
 
 export {getBasket, addToBasket, deleteFromBasket}

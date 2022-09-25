@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="text/plain;charset=gbk, text/html">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viZewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,21 +35,23 @@
     <main>
         <section id="about">
             <figure>
+                <div>
+                    <button id="left"><div>←</div></button>
+                    <button id="right"><div>→</div></button>
+                </div>
+                <img src="img/about/grill.jpg">
                 <figcaption>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac luctus nisi. Duis velit dui, aliquet at facilisis eget, lobortis et urna. Phasellus interdum velit a mi maximus maximus. Ut ullamcorper felis at orci blandit pellentesque. Phasellus non felis orci. Aenean imperdiet ut velit sed tincidunt. In vitae mollis ante, at interdum nisl. Pellentesque lobortis vel lacus at bibendum. Integer non posuere libero, sit amet pellentesque metus. In hac habitasse platea dictumst. Fusce laoreet dolor ac dui molestie, sit amet posuere nulla aliquam. 
                     Morbi eros lacus, interdum eu massa non, pulvinar finibus enim. Nulla lobortis odio at orci malesuada porttitor. Cras elementum sapien vitae dolor interdum vehicula. Morbi malesuada eleifend ligula id ultricies. Nunc sit amet consequat nunc, ac pretium massa. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam eu ornare ipsum. Fusce quis nulla pellentesque, molestie orci vel, consectetur tortor. Suspendisse gravida purus eu finibus auctor. Nunc lobortis, nisi eu eleifend placerat, enim orci gravida quam, sed blandit nisi diam a tellus. Praesent pellentesque massa nulla, sit amet convallis lacus sagittis et. 
                 </figcaption>
-                <div>
-                    <button id="left"><div>←</div></button>
-                    <button id="right"><div>→</div></button>
-                    <img src="img/about/grill.jpg">
-                    <img src="img/about/2400-1800.jpg">
-                    <img src="img/about/service.jpg">
-                    <img src="img/about/food.jpg">
-                </div>
             </figure>
         </section>
         <section id="menu">
+            <nav id="nav-menu">
+                <li>Burgers</li>
+                <li>Accompagnements</li>
+                <li>Desserts</li>
+            </nav>
             <menu-content></menu-content>
             <div id="choice">
                 <button id="close-choice">╳</button>
@@ -93,7 +95,7 @@
             2022 par Richet Shanon
         </p>
     </footer>
-<script src="functions.js"></script>
+<script src="functions.js" type="module"></script>
 
 </body>
 </html>

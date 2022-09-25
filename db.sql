@@ -65,3 +65,4 @@ VALUES (1, 1, 2, 'ketchup', 'Coca Cola', 'Frites', null);
 ALTER TABLE basket ADD FOREIGN KEY (id_produit) REFERENCES produits(id);
 
 select nom, prix, img, quantity, sauce, boisson from basket INNER JOIN produits ON produits.id = id_produit WHERE id_produit = 1;
+select id_produit, nom from basket inner join produits on produits.id = id_produit where nom = 'Hamburger'
