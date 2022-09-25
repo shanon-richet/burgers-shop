@@ -62,7 +62,6 @@ fetch('https://love-burgers.herokuapp.com/api/products')
     var navMenu = document.getElementById('nav-menu')
     var titles = document.querySelectorAll('.items')
     var li2 = navMenu.childNodes
-    console.log(titles)
     scrollBtn(li2[1], titles[0].offsetTop - navMenu.offsetHeight)
     scrollBtn(li2[3], titles[1].offsetTop - navMenu.offsetHeight)
     scrollBtn(li2[5], titles[2].offsetTop - navMenu.offsetHeight)
