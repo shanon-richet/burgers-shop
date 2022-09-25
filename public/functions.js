@@ -1,7 +1,5 @@
 var navHeader = document.getElementById('nav-header')
-var text = document.getElementById('text')
 var cart = document.getElementById('cart-content')
-var header = document.querySelector('header')
 var about = document.getElementById('about')
 var left = document.querySelector('#text #left')
 var right = document.querySelector('#text #right')
@@ -37,6 +35,7 @@ close.onclick = () => {
 }
 
 /* SCROLL */
+
 export default function scrollBtn(x, y) {
     x.onclick = () => {
         scrollTo(0, y)
@@ -69,10 +68,7 @@ function slideRight() {
     }
     fig_img.src = `img/about/${srcs[index]}`
 }
-
-var interval = setInterval(() => {
-    slideRight()
-}, 5000)
+setInterval( () => { slideRight() }, 5000)
 
 right.onclick = () => {
     slideRight()
@@ -85,4 +81,10 @@ left.onclick = () => {
     }
     fig_img.src = `img/about/${srcs[index]}`
 
+}
+
+var close_payment = document.querySelector('#section-payment div')
+
+close_payment.onclick = () => {
+    close_payment.parentElement.style.display = "none"
 }

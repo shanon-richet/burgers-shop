@@ -1,7 +1,6 @@
 import scrollBtn from "./functions.js"
 
 var choice = document.getElementById('choice')
-var nav = document.getElementById('food-nav')
 var close = document.getElementById('close-choice')
 
 close.onclick = () => {
@@ -62,7 +61,6 @@ fetch('http://localhost:5000/api/products')
     var navMenu = document.getElementById('nav-menu')
     var titles = document.querySelectorAll('.items')
     var li2 = navMenu.childNodes
-    console.log(titles)
     scrollBtn(li2[1], titles[0].offsetTop - navMenu.offsetHeight)
     scrollBtn(li2[3], titles[1].offsetTop - navMenu.offsetHeight)
     scrollBtn(li2[5], titles[2].offsetTop - navMenu.offsetHeight)
@@ -216,28 +214,35 @@ fetch('http://localhost:5000/basket')
                         </tr>
                 </table>
                 <form action="/command" method="post">
-                    <input id="command" value="Commander">
+                    <input type="button" id="command" value="Commander">
                 </form>
             `
         }
     }
     customElements.define('my-basket', Basket)
+
+    var command_btn = document.getElementById('command')
+    var section_payment = document.getElementById('section-payment')
+    command_btn.onclick= () => {
+        section_payment.style.top = `${window.pageYOffset}px`
+        section_payment.style.display="block"
+        document.body.style.overflow = "hidden"
+    }
 })
 
 class Payment extends HTMLElement {
     connectedCallback() {
         this.innerHTML= `
             <form id="form-payment" method="post" action="/pay">
-
                 <label for="infos">Informations personnelles</label> 
                 <label for="first_name">First Name :</label>
-                <input name="first_name" required> 
+                <input type="text" name="first_name" required> 
                 <label for="last_name">Last Name :</label>
-                <input name="last_name" required> 
+                <input type="text" name="last_name" required> 
                 <label for="email">Email :</label>
-                <input name="email" required>
+                <input type="text" name="email" required>
                 <label for="phone">Phone :</label>
-                <input name="phone" required>
+                <input type="text" name="phone" required>
             
             <label for="mode">Mode de livraison</label>
                 <label for="emporter">
@@ -255,21 +260,20 @@ class Payment extends HTMLElement {
 
                 <label for="">Adresse de livraison :</label>
                 <label for="rue">Rue :</label>
-                <input name="rue" required>
+                <input type="text" name="rue" required>
                 <label for="no">Numéro de maison :</label>
-                <input name="no" required>
+                <input type="text" name="no" required>
                 <label for="postcode">Code postal :</label>
-                <input name="postcode" required>
+                <input type="text" name="postcode" required>
                 <label for="rue">Ville :</label>
-                <input name="rue" required>
+                <input type="text" name="rue" required>
 
                 <label for="message">Message(optionnel) : </label>
-                <input name="message">
+                <textarea name="message"></textarea>
 
-                <input type="submit" value="Paiement">
+                <input id="paiement" type="submit" value="Paiement">
             </form>
         `
     }
 }
 customElements.define('form-payment', Payment)
-

@@ -1,6 +1,5 @@
 body {
     overflow-x: hidden;
-    background: black;
 }
 h1, nav, footer, footer p, main, #about, form, article, #form-payment, figure {
     display: flex;
@@ -15,7 +14,7 @@ h1, nav, footer p {
     margin-left: auto;
     margin-right: auto;
 }
-#nav-header, #about figcaption, #menu-items, #add-nom, #food-name, footer, table input, label, #quantity, #close-choice, figure button, #command, #cart-content {
+#nav-header, #about figcaption, #menu-items, #add-nom, #food-name, footer, table input, label, #quantity, #close-choice, figure button, #command, #cart-content, #paiement, #contacts input, textarea {
     color: white;
 }
 h2, #food-name, #quantity {
@@ -29,7 +28,7 @@ h1, #menu-items h2, #close-choice {
 li, #shopping-cart, #cart-content h2, #close, #left, #right, #submit{
     font-size: 80px;
 }
-#command, #form-payment, #add-btn {
+#command, #add-btn {
     font-size: 60px;
 }
 table, #contacts input, textarea, #contacts label {
@@ -38,18 +37,21 @@ table, #contacts input, textarea, #contacts label {
 #add-form label, #add-form input, #add-form select, #plus, #moins{
     font-size: 40px;
 }
-#delete, td input, footer {
+#delete, td input, #form-payment input, footer {
     font-size: 2vmin;
 }
-#about, #item div, #nav-header li {
-    font-size: 3vmin;
+#about, #item div, #nav-header li, #form-payment label, #paiement{
+    font-size: 3vmin; 
 }
 
-#close-choice, #add-form div input, button, td input, #food-name, #contacts input, textarea {
+#close-choice, #add-form div input, button, td input, #food-name, #paiement {
     border: none;
 }
-#close-choice, #food-name, #quantity {
+#close-choice, #food-name, #quantity, #paiement, input[type="button"] {
     background: none;
+}
+body, figcaption, input[type="text"], textarea {
+    background-color: black;
 }
 
 /* WIDTH */ 
@@ -64,10 +66,10 @@ table, #contacts input, textarea, #contacts label {
 } 
 
 /* BORDER */
-#about, #menu-items h2, #cart-content, #choice, #contacts {
+#about, #menu-items h2, #cart-content, #choice, #contacts, input[type="text"], textarea {
     border: 5px solid #494949;
 }
-#nav-menu li:hover, #delete, #add-btn, #command, #add-form select, #submit {
+#nav-menu li:hover, #delete, #add-btn, #command, #add-form select, input[type="button"] {
     border: 5px solid;
     border-image: linear-gradient(30deg, #ff6200, #ffff00) 5;
 }
@@ -95,7 +97,6 @@ li:hover, #shopping-cart:hover, .items, #item img:hover {
 figcaption, li:hover, #shopping-cart:hover, #menu-items h2, footer p {
     text-shadow: 4px 4px 8px #f6aa1c;
 }
-
 #menu-items h2, #nav-header {
     font-family: 'Bubblegum Sans', cursive;
 }
@@ -176,7 +177,6 @@ figcaption {
     width: 90%;
     height: 25%;
     overflow-y: auto;
-    background: black;
     padding: 2%;
 }
 figure div {
@@ -211,9 +211,6 @@ figure button div {
     padding-right: 1%;
     border-radius: 5%;
 }
-#nav-menu li:hover {
-}
-
 #menu-items h2 {
     background-color: rgb(18, 18, 18);
     padding-block: 50px;
@@ -385,13 +382,8 @@ main {
     display: flex;
     flex-direction: column;
 }
-#contacts form input, textarea {
-    background-color: black;
-
-}
-#contacts form input, #contacts form label, textarea {
+#contacts form input, #contacts form label, #contacts textarea {
     margin-top: 20px;
-    color: white;
     margin-left: 50px;
     margin-right: 50px;
     margin-bottom: 20px;
@@ -419,17 +411,27 @@ figure button {
 #section-payment {
     background-color: #181818;
     color: white;
-    z-index: 14;
+    position: absolute;
+    z-index: 16;
+    height: 95vh;
     display: none;
+    overflow-y: auto;
 }
 #form-payment {
-    margin-top: 5%;
     margin-bottom: 5%;
     flex-direction: column;
+}
+#form-payment input[type="text"] {
+    height: 2%;
+    color: white;
 }
 input[type="radio"] {
     width: 50px;
     height: 50px;
+}
+#paiement {
+    margin-top: 2%;
+    padding-block: 2%;
 }
 /* FOOTER */
 
