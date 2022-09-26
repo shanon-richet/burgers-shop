@@ -44,7 +44,7 @@ table, #contacts input, textarea, #contacts label {
     font-size: 3vmin; 
 }
 
-#close-choice, #add-form div input, button, td input, #food-name, #paiement {
+#close-choice, #add-form div input, button, td input, #food-name {
     border: none;
 }
 #close-choice, #food-name, #quantity, #paiement, input[type="button"] {
@@ -112,6 +112,7 @@ figcaption, li:hover, #shopping-cart:hover, #menu-items h2, footer p {
     background-color: #181818;
 }
 
+
 li {
     list-style: none;
     margin-left: auto;
@@ -128,6 +129,7 @@ li:hover, #shopping-cart:hover {
     top: 0;
     z-index: 13;
 }
+
 #burger img {
     width: 80%;
     top: 5%;
@@ -172,7 +174,7 @@ figure img {
 }
 figcaption {
     width: 90%;
-    height: 25%;
+    max-height: 600px;
     overflow-y: auto;
     padding: 2%;
 }
@@ -386,6 +388,9 @@ main {
     margin-bottom: 20px;
     padding-block: 10px;
 }
+#contacts form input[type="text"], #contacts textarea {
+    padding-left: 20px;
+}
 
 /* SLIDES BUTTONS */
 figure button {
@@ -410,7 +415,7 @@ figure button {
     color: white;
     position: absolute;
     z-index: 16;
-    height: 95vh;
+    height: 100vh;
     display: none;
     overflow-y: auto;
 }
