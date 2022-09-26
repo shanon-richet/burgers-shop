@@ -112,11 +112,11 @@ figcaption, li:hover, #shopping-cart:hover, #menu-items h2, footer p {
     background-color: #181818;
 }
 
-
 li {
     list-style: none;
-    margin-left: 100px;
-    padding-block: 10px;
+    margin-left: auto;
+    width: 15%;
+    padding-block: 1%;
 }
 li:hover, #shopping-cart:hover {
     cursor: pointer;
@@ -128,7 +128,6 @@ li:hover, #shopping-cart:hover {
     top: 0;
     z-index: 13;
 }
-
 #burger img {
     width: 80%;
     top: 5%;
@@ -145,13 +144,11 @@ li:hover, #shopping-cart:hover {
 svg {
     fill: white;
     width: 20%;
+    padding-block: 1%;
 }
 #close-choice {
     width: 100px;
     height: 100px;
-}
-.hidden {
-    display: none;
 }
 #about, tr, #item img, #form-payment label {
     margin-top: 50px;
