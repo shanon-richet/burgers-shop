@@ -1,8 +1,7 @@
 var navHeader = document.getElementById('nav-header')
 var cart = document.getElementById('cart-content')
-var about = document.getElementById('about')
-var left = document.querySelector('#text #left')
-var right = document.querySelector('#text #right')
+var left = document.getElementById('left')
+var right = document.getElementById('right')
 
 var shopping = document.querySelector('svg')
 var close = document.getElementById('close')
@@ -38,26 +37,23 @@ close.onclick = () => {
 
 export default function scrollBtn(x, y) {
     x.onclick = () => {
-        scrollTo(0, y)
+        scrollTo(0, y - navHeader.offsetHeight - 20)
     }
 }
-
 var li = navHeader.childNodes
-var menu = document.getElementById('menu')
-var contact = document.getElementById('contacts')
 
 scrollBtn(li[1], 0)
-scrollBtn(li[3], about.offsetTop - navHeader.offsetHeight)
-scrollBtn(li[5], menu.offsetTop - navHeader.offsetHeight)
-scrollBtn(li[7], contact.offsetTop - navHeader.offsetHeight)
+scrollBtn(li[3], document.getElementById('nav-menu').offsetTop)
 
-
+li[5].onclick = () => {
+    scrollTo(0, document.getElementById('contacts').offsetTop - navHeader.offsetHeight - 20)
+}
 /* SLIDES */
 
 var fig_img = document.querySelector('figure img')
 var left = document.querySelector('figure #left')
 var right = document.querySelector('figure #right')
-const srcs = ['grill.jpg', 'food.jpg', 'in-n-out.jpg', 'resto.jpg', 'service.jpg']
+const srcs = ['grill.jpg', 'in-n-out.jpg', 'resto.jpg', 'service.jpg']
 var index = 0
 
 function slideRight() {
@@ -69,7 +65,6 @@ function slideRight() {
     fig_img.src = `img/about/${srcs[index]}`
 }
 setInterval( () => { slideRight() }, 5000)
-
 right.onclick = () => {
     slideRight()
 }
@@ -84,7 +79,8 @@ left.onclick = () => {
 }
 
 var close_payment = document.querySelector('#section-payment div')
-
 close_payment.onclick = () => {
     close_payment.parentElement.style.display = "none"
+    document.body.style.overflowY = "auto"
 }
+
