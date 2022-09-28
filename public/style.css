@@ -115,7 +115,6 @@ li {
     list-style: none;
     margin-left: auto;
     width: 15%;
-    padding-block: 2%;
 }
 li:hover, #shopping-cart:hover {
     cursor: pointer;
