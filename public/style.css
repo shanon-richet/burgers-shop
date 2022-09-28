@@ -136,15 +136,9 @@ li:hover, #shopping-cart:hover {
     left: 50%;
     transform: translateX(-50%);
 }
-#shopping-cart {
-    margin-top: 5px;
-    color:white;
-    float: right;
-    margin-right: 50px;
-}
 svg {
     fill: white;
-    width: 20%;
+    width: 15%;
     padding-block: 1%;
 }
 #close-choice {
