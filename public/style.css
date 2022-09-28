@@ -111,13 +111,11 @@ figcaption, li:hover, #shopping-cart:hover, #menu-items h2, footer p {
     height: 4%;
     background-color: #181818;
 }
-
-
 li {
     list-style: none;
     margin-left: auto;
     width: 15%;
-    padding-block: 1%;
+    padding-block: 2%;
 }
 li:hover, #shopping-cart:hover {
     cursor: pointer;
