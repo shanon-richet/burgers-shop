@@ -13,7 +13,6 @@ fetch('https://love-burgers.herokuapp.com/api/products')
     var burgers = []
     var sides = []
     var desserts = []
-
     for (const x of json) {
         var html = `
         <article id="item">
@@ -110,7 +109,7 @@ fetch('https://love-burgers.herokuapp.com/api/products')
                 `)     
             }
             inner.push(`
-                <div id="div-quantity"><input id="moins" type="button" value="-"><input id="quantity" name="quantity" value="1"><input id="plus" type="button" value="+"></div>
+                <div id="div-quantity"><input id="moins" type="button" value="-"><input type="text" id="quantity" name="quantity" value="1" readonly><input id="plus" type="button" value="+"></div>
                     <input id="submit" type="submit" value="add ${price} $">
                 </form>
             `)
@@ -199,7 +198,6 @@ fetch('https://love-burgers.herokuapp.com/basket')
         `)
         total += x.prix * x.quantity
     }
-
     class Basket extends HTMLElement {
         connectedCallback() {
             this.innerHTML= `
@@ -220,13 +218,12 @@ fetch('https://love-burgers.herokuapp.com/basket')
         }
     }
     customElements.define('my-basket', Basket)
-
     var command_btn = document.getElementById('command')
     var section_payment = document.getElementById('section-payment')
     command_btn.onclick= () => {
         section_payment.style.top = `${window.pageYOffset}px`
         section_payment.style.display="block"
-        document.body.style.overflow = "hidden"
+        document.body.style.overflowY = "hidden"
     }
 })
 
@@ -243,8 +240,8 @@ class Payment extends HTMLElement {
                 <input type="text" name="email" required>
                 <label for="phone">Phone :</label>
                 <input type="text" name="phone" required>
-            
-            <label for="mode">Mode de livraison</label>
+
+                <label for="mode">Mode de livraison</label>
                 <label for="emporter">
                 <input type="radio" name="radio" value="emporter">
                    A emporter
@@ -271,9 +268,10 @@ class Payment extends HTMLElement {
                 <label for="message">Message(optionnel) : </label>
                 <textarea name="message"></textarea>
 
-                <input id="paiement" type="submit" value="Paiement">
+                <input id="paiement" type="button" value="Paiement">
             </form>
         `
     }
 }
 customElements.define('form-payment', Payment)
+
