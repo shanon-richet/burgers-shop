@@ -10,7 +10,7 @@ h1, nav, footer, footer p, main, #about, form, article, #form-payment, figure {
 h1, nav, footer p {
     justify-content: center;
 }
-#nav-header, #burger, #about, figure img, figcaption, #nav-menu, #menu-items h2, .items, #item div, #submit, #choice, #contacts, #form-payment {
+#nav-header, #burger, #about, figure img, figcaption, #nav-menu, #menu-items h2, .items, #item div, #submit, #choice, #contacts, #form-payment, #nav-menu li {
     margin-left: auto;
     margin-right: auto;
 }
