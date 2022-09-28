@@ -69,7 +69,7 @@ body, figcaption, input[type="text"], textarea {
 #about, #menu-items h2, #cart-content, #choice, #contacts, input[type="text"], textarea {
     border: 5px solid #494949;
 }
-#nav-menu li:hover, #delete, #add-btn, #command, #add-form select, input[type="button"] {
+#nav-menu li:hover, #delete, #add-btn, #command, #add-form select, input[type="button"], #submit {
     border: 5px solid;
     border-image: linear-gradient(30deg, #ff6200, #ffff00) 5;
 }
@@ -114,6 +114,8 @@ figcaption, li:hover, #shopping-cart:hover, #menu-items h2, footer p {
 li {
     list-style: none;
     margin-left: auto;
+}
+#nav-header li {
     width: 15%;
 }
 li:hover, #shopping-cart:hover {
@@ -203,8 +205,8 @@ figure button div {
     padding-block: 1%;
 }
 #nav-menu li {
-    padding-left: 1%;
-    padding-right: 1%;
+    width: 30%;
+    text-align: center;
     border-radius: 5%;
 }
 #menu-items h2 {
